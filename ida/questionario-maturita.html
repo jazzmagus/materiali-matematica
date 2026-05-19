@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Questionario – Colloquio Maturità IDA</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap');
+
+  :root {
+    --bg: #faf8f4;
+    --surface: #ffffff;
+    --ink: #1a1714;
+    --muted: #6b6560;
+    --accent: #c8472a;
+    --accent-light: #f4ebe8;
+    --border: #e2ddd8;
+    --progress-bg: #e8e4df;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    padding: 2rem 1rem 4rem;
+  }
+
+  header {
+    max-width: 680px;
+    margin: 0 auto 3rem;
+    text-align: center;
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 0.25rem 0.75rem;
+    border-radius: 2px;
+    margin-bottom: 1.2rem;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.6rem;
+    color: var(--ink);
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* Progress bar */
+  .progress-wrap {
+    max-width: 680px;
+    margin: 0 auto 2.5rem;
+  }
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+  .progress-track {
+    height: 4px;
+    background: var(--progress-bg);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 99px;
+    transition: width 0.5s ease;
+  }
+
+  /* Card */
+  .card {
+    max-width: 680px;
+    margin: 0 auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2.5rem 2.5rem;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+    display: none;
+  }
+  .card.active { display: block; animation: fadeIn 0.4s ease; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+
+  .question-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 400;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+  }
+
+  .question-hint {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  textarea, input[type="text"] {
+    width: 100%;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--ink);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 0.85rem 1rem;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.2s;
+    line-height: 1.6;
+  }
+  textarea:focus, input[type="text"]:focus {
+    border-color: var(--accent);
+    background: #fff;
+  }
+  textarea { min-height: 130px; }
+
+  /* Sub-questions */
+  .subquestions { display: flex; flex-direction: column; gap: 1.2rem; margin-top: 0.5rem; }
+  .subq label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--muted);
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.03em;
+  }
+
+  /* Nav buttons */
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 1rem;
+  }
+
+  button {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    border: none;
+    cursor: pointer;
+    padding: 0.7rem 1.6rem;
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+
+  .btn-next {
+    background: var(--accent);
+    color: #fff;
+  }
+  .btn-next:hover { background: #a83620; }
+
+  .btn-prev {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--border);
+  }
+  .btn-prev:hover { color: var(--ink); border-color: var(--ink); }
+
+  .btn-generate {
+    background: var(--ink);
+    color: #fff;
+    padding: 0.8rem 2rem;
+  }
+  .btn-generate:hover { background: #3a3530; }
+
+  /* Result */
+  #result-card {
+    max-width: 680px;
+    margin: 0 auto;
+    display: none;
+    animation: fadeIn 0.4s ease;
+  }
+  #result-card.active { display: block; }
+
+  .result-header {
+    background: var(--ink);
+    color: #fff;
+    padding: 2rem 2.5rem 1.5rem;
+    border-radius: 4px 4px 0 0;
+  }
+  .result-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 0.2rem;
+  }
+  .result-header p { font-size: 0.85rem; opacity: 0.6; }
+
+  .result-body {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    padding: 2rem 2.5rem;
+  }
+
+  .result-section {
+    margin-bottom: 1.8rem;
+    padding-bottom: 1.8rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .result-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .result-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+  }
+
+  .result-section p {
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: var(--ink);
+    white-space: pre-wrap;
+  }
+
+  .result-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .btn-print {
+    background: var(--accent);
+    color: #fff;
+    padding: 0.75rem 1.8rem;
+  }
+  .btn-print:hover { background: #a83620; }
+
+  .btn-restart {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--border);
+  }
+  .btn-restart:hover { color: var(--ink); border-color: var(--ink); }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .card, header, .progress-wrap { display: none !important; }
+    #result-card { display: block !important; }
+    .result-actions { display: none; }
+    .result-header { background: #000; -webkit-print-color-adjust: exact; }
+  }
+
+  @media (max-width: 600px) {
+    .card, .result-body, .result-header { padding: 1.5rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="badge">Esame di Stato IDA 2° Livello</div>
+  <h1>Prepara la tua<br><em>presentazione</em></h1>
+  <p class="subtitle">Rispondi alle domande con calma e con parole tue.<br>Alla fine il documento sarà pronto da stampare.</p>
+</header>
+
+<div class="progress-wrap">
+  <div class="progress-label">
+    <span id="step-label">Dati personali</span>
+    <span id="step-count">1 / 12</span>
+  </div>
+  <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:8%"></div></div>
+</div>
+
+<!-- STEP 0: Dati personali -->
+<div class="card active" id="step-0">
+  <div class="section-label">Intestazione</div>
+  <div class="question-title">Come ti chiami e in quale istituto studi?</div>
+  <div class="question-hint">Questi dati appariranno in cima alla scheda.</div>
+  <div class="subquestions">
+    <div class="subq"><label>Nome e Cognome</label><input type="text" id="nome" placeholder="es. Maria Rossi"></div>
+    <div class="subq"><label>Istituto / Corso IDA</label><input type="text" id="istituto" placeholder="es. IIS Remondini – Corso IDA 2° livello"></div>
+  </div>
+  <div class="nav">
+    <span></span>
+    <button class="btn-next" onclick="next()">Avanti →</button>
+  </div>
+</div>
+
+<!-- STEP 1 -->
+<div class="card" id="step-1">
+  <div class="section-label">1 · Storia individuale e professionale</div>
+  <div class="question-title">Raccontami un po' di te: chi sei e qual è la tua storia personale?</div>
+  <div class="question-hint">Puoi parlare di dove sei cresciuta, della tua famiglia, di cosa ti ha segnato nella vita, di valori importanti per te. Non deve essere lungo: anche poche righe vanno bene.</div>
+  <textarea id="q1" placeholder="Scrivi qui..."></textarea>
+  <div class="nav">
+    <button class="btn-prev" onclick="prev()">← Indietro</button>
+    <button class="btn-next" onclick="next()">Avanti →</button>
+  </div>
+</div>
+
+<!-- STEP 2 -->
+<div class="card" id="step-2">
+  <div class="section-label">1b · Esperienze scolastiche precedenti</div>
+  <div class="question-title">Hai frequentato altre scuole o corsi prima di questo?</div>
+  <div class="question-hint">Indica cosa hai studiato, in che anni, quali titoli hai ottenuto (se ne hai). Puoi anche raccontare se hai trovato difficoltà o se ci sono stati momenti positivi.</div>
+  <textarea id="q2" placeholder="es. Ho frequentato le scuole medie nel 2005 e poi ho fatto un corso professionale di parrucchiera nel 2008..."></textarea>
+  <div class="nav">
+    <button class="btn-prev" onclick="prev()">← Indietro</button>
+    <button class="btn-next" onclick="next()">Avanti →</button>
+  </div>
+</div>
+
+<!-- STEP 3 -->
+<div class="card" id="step-3">
+  <div class="section-label">1c · Esperienze di lavoro</div>
+  <div class="question-title">Hai lavorato? Raccontami i lavori che hai fatto.</div>
+  <div class="question-hint">Per ogni lavoro prova a indicare: cosa facevi, dove e quando, per quanto tempo, quali erano le tue responsabilità. Non preoccuparti dell'ordine, basta che ci sia.</div>
+  <textarea id="q3" placeholder="es. Dal 2010 al 2015 ho lavorato come cameriera in un ristorante a Bassano..."></textarea>
+  <div class="nav">
+    <button class="btn-prev" onclick="prev()">← Indietro</button>
+    <button class="btn-next" onclick="next()">Avanti →</button>
+  </div>
+</div>
+
+<!-- STEP 4 -->
+<div class="card" id="step-4">
+  <div class="section-label">1c · Rapporti e difficoltà nel lavoro</div>
+  <div class="question-title">Com'era lavorare con i colleghi e i clienti? Hai incontrato difficoltà?</div>
+  <div class="question-hint">Pensa a momenti in cui hai dovuto risolvere un problema, gestire una situazione difficile, o lavorare in squadra. Anche le cose che non hanno funzionato sono importanti da raccontare.</div>
+  <textarea id="q4" placeholder="es. All'inizio non era facile comunicare con i clienti stranieri, ma nel tempo ho imparato a..."></textarea>
+  <div class="nav">
+    <button class="btn-prev" onclick="prev()">← Indietro</button>
+    <button class="btn-next" onclick="next()">Avanti →</button>
+  </div>
+</div>
+
+<!-- STEP 5 -->
+<div class="card" id="step-5">
+  <div class="section-label">1c · Competenze acquisite nel lavoro</div>
+  <div class="question-title">Cosa hai imparato lavorando?</div>
+  <div class="question-hint">Pensa sia alle cose tecniche (saper fare qualcosa di specifico) sia alle cose "umane": pazienza, organizzazione, puntualità, gestione dello stress, lavoro di squadra... tutto conta.</div>
+  <textarea id="q5" placeholder="es. Ho imparato a gestire situazioni di stress, a lavorare in fretta mantenendo la qualità, e a comunicare con persone di culture diverse..."></textarea>
+  <div class="nav">
+    <button class="btn-prev" onclick="prev()">← Indietro</button>
+    <button class="btn-next" onclick="next()">Avanti →</button>
+  </div>
+</div>
+
+<!-- STEP 6 -->
+<div class="card" id="step-6">
+  <div class="section-label">2 · Iscrizione al corso IDA</div>
+  <div class="question-title">Quando ti sei iscritta al corso e perché hai deciso di farlo?</div>
+  <div class="question-hint">Cosa ti ha spinto a tornare a studiare? Quali obiettivi volevi raggiungere quando hai iniziato? Sii sincera: le motivazioni personali sono importanti.</div>
+  <div class="subquestions">
+    <div class="subq"><label>Anno di iscrizione</label><input type="text" id="q6a" placeholder="es. 2022"></div>
+    <div class="subq"><label>Motivazione e obiettivi iniziali</label><textarea id="q6b" placeholder="es. Ho deciso di iscrivermi perché volevo finalmente prendere il diploma, che non avevo mai completato per motivi familiari..."></textarea></div>
+  </div>
+  <div class="nav">
+    <button class="btn-prev" onclick="prev()">← Indietro</button>
+    <button class="btn-next" onclick="next()">Avanti →</button>
+  </div>
+</div>
+
+<!-- STEP 7 -->
+<div class="card" id="step-7">
+  <div class="section-label">2c · Il percorso scolastico nel corso</div>
+  <div class="question-title">Com'è andato il percorso nel corso IDA? Cosa hai studiato?</div>
+  <div class="question-hint">Parla delle materie, dei progetti, delle attività che ti sono rimaste. Non serve elencare tutto: concentrati su quello che ti ha coinvolto di più o che ricordi meglio.</div>
+  <textarea id="q7" placeholder="es. Ho studiato italiano, matematica, storia... La materia che mi ha più appassionato è stata..."></textarea>
+  <div class="nav">
+    <button class="btn-prev" onclick="prev()">← Indietro</button>
+    <button class="btn-next" onclick="next()">Avanti →</button>
+  </div>
+</div>
+
+<!-- STEP 8 -->
+<div class="card" id="step-8">
+  <div class="section-label">2d · Difficoltà nel corso</div>
+  <div class="question-title">Hai trovato difficoltà durante il corso? Come le hai affrontate?</div>
+  <div class="question-hint">Tornare a studiare da adulti non è semplice: famiglia, lavoro, stanchezza, materie difficili... Racconta come hai fatto a gestire tutto.</div>
+  <textarea id="q8" placeholder="es. La parte più difficile è stata conciliare lo studio con il lavoro e i figli, ma..."></textarea>
+  <div class="nav">
+    <button class="btn-prev" onclick="prev()">← Indietro</button>
+    <button class="btn-next" onclick="next()">Avanti →</button>
+  </div>
+</div>
+
+<!-- STEP 9 -->
+<div class="card" id="step-9">
+  <div class="section-label">2e · Competenze acquisite nel corso</div>
+  <div class="question-title">Cosa hai imparato di importante durante questi anni di studio?</div>
+  <div class="question-hint">Sia le competenze specifiche delle materie (saper leggere un testo, fare un calcolo, conoscere la storia...) sia quelle più generali: organizzazione, metodo, fiducia in sé stessa.</div>
+  <textarea id="q9" placeholder="es. Ho migliorato molto nella comprensione dei testi scritti e ho imparato a organizzare il mio tempo in modo più efficace..."></textarea>
+  <div class="nav">
+    <button class="btn-prev" onclick="prev()">← Indietro</button>
+    <button class="btn-next" onclick="next()">Avanti →</button>
+  </div>
+</div>
+
+<!-- STEP 10 -->
+<div class="card" id="step-10">
+  <div class="section-label">3 · Prospettive future</div>
+  <div class="question-title">Cosa vorresti fare dopo aver preso il diploma?</div>
+  <div class="question-hint">Pensa sia al lavoro sia alla formazione: vorresti continuare a studiare? Cambiare lavoro? Aprire qualcosa? Anche se non hai le idee chiare, racconta quello che stai immaginando o sperando.</div>
+  <textarea id="q10" placeholder="es. Con il diploma potrei candidarmi per un lavoro in ambito amministrativo, che mi ha sempre interessato. Sto anche pensando di iscrivermi a..."></textarea>
+  <div class="nav">
+    <button class="btn-prev" onclick="prev()">← Indietro</button>
+    <button class="btn-next" onclick="next()">Avanti →</button>
+  </div>
+</div>
+
+<!-- STEP 11 -->
+<div class="card" id="step-11">
+  <div class="section-label">3b · Iniziative già avviate</div>
+  <div class="question-title">Hai già fatto qualcosa per realizzare questi piani?</div>
+  <div class="question-hint">Hai mandato curricula? Ti sei informata su corsi o università? Hai parlato con qualcuno? Anche piccoli passi vanno menzionati — mostrano che ci pensi sul serio.</div>
+  <textarea id="q11" placeholder="es. Ho già contattato un'agenzia di lavoro e mi sono informata sui requisiti per iscrivermi a un corso di formazione professionale nel settore..."></textarea>
+  <div class="nav">
+    <button class="btn-prev" onclick="prev()">← Indietro</button>
+    <button class="btn-next" onclick="next()">Avanti →</button>
+  </div>
+</div>
+
+<!-- RESULT -->
+<div id="result-card">
+  <div class="result-header">
+    <h2 id="result-nome">Schema di Relazione</h2>
+    <p id="result-istituto"></p>
+  </div>
+  <div class="result-body" id="result-body"></div>
+  <div class="result-actions">
+    <button class="btn-print" onclick="window.print()">🖨 Stampa / Salva PDF</button>
+    <button class="btn-restart" onclick="restart()">Ricomincia</button>
+  </div>
+</div>
+
+<script>
+  const TOTAL = 12;
+  let current = 0;
+
+  const stepLabels = [
+    'Dati personali',
+    'Storia personale',
+    'Esperienze scolastiche',
+    'Esperienze lavorative',
+    'Rapporti e difficoltà nel lavoro',
+    'Competenze dal lavoro',
+    'Iscrizione al corso',
+    'Percorso nel corso',
+    'Difficoltà nel corso',
+    'Competenze dal corso',
+    'Prospettive future',
+    'Iniziative già avviate',
+  ];
+
+  function updateProgress() {
+    const pct = Math.round(((current + 1) / TOTAL) * 100);
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('step-label').textContent = stepLabels[current] || '';
+    document.getElementById('step-count').textContent = (current + 1) + ' / ' + TOTAL;
+  }
+
+  function showStep(n) {
+    document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+    const el = document.getElementById('step-' + n);
+    if (el) el.classList.add('active');
+    updateProgress();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function next() {
+    if (current < TOTAL - 1) {
+      current++;
+      showStep(current);
+    } else {
+      generate();
+    }
+  }
+
+  function prev() {
+    if (current > 0) {
+      current--;
+      showStep(current);
+    }
+  }
+
+  function val(id) {
+    const el = document.getElementById(id);
+    return el ? el.value.trim() : '';
+  }
+
+  function block(title, content) {
+    if (!content) return '';
+    return `<div class="result-section"><h3>${title}</h3><p>${content}</p></div>`;
+  }
+
+  function generate() {
+    const nome = val('nome') || '_______________';
+    const istituto = val('istituto') || '_______________';
+
+    document.getElementById('result-nome').textContent = nome;
+    document.getElementById('result-istituto').textContent = istituto;
+
+    const sections = [];
+
+    // Sezione 1
+    const s1a = val('q1');
+    const s1b = val('q2');
+    const s1c1 = val('q3');
+    const s1c2 = val('q4');
+    const s1c3 = val('q5');
+
+    let s1 = '';
+    if (s1a) s1 += `<b>a. Aspetti personali</b>\n${s1a}\n\n`;
+    if (s1b) s1 += `<b>b. Esperienze scolastiche precedenti</b>\n${s1b}\n\n`;
+    if (s1c1 || s1c2 || s1c3) {
+      s1 += `<b>c. Esperienze professionali</b>\n`;
+      if (s1c1) s1 += s1c1 + '\n\n';
+      if (s1c2) s1 += `<i>Rapporti e difficoltà:</i> ${s1c2}\n\n`;
+      if (s1c3) s1 += `<i>Competenze acquisite:</i> ${s1c3}\n\n`;
+    }
+    if (s1) sections.push({ title: '1. Storia individuale e professionale', content: s1.trim() });
+
+    // Sezione 2
+    const s2a = val('q6a');
+    const s2b = val('q6b');
+    const s2c = val('q7');
+    const s2d = val('q8');
+    const s2e = val('q9');
+
+    let s2 = '';
+    if (s2a) s2 += `<b>a. Anno di iscrizione:</b> ${s2a}\n\n`;
+    if (s2b) s2 += `<b>b. Motivazione e obiettivi</b>\n${s2b}\n\n`;
+    if (s2c) s2 += `<b>c. Percorso svolto</b>\n${s2c}\n\n`;
+    if (s2d) s2 += `<b>d. Difficoltà incontrate</b>\n${s2d}\n\n`;
+    if (s2e) s2 += `<b>e. Competenze acquisite</b>\n${s2e}\n\n`;
+    if (s2) sections.push({ title: '2. Iscrizione al Corso per Adulti', content: s2.trim() });
+
+    // Sezione 3
+    const s3a = val('q10');
+    const s3b = val('q11');
+
+    let s3 = '';
+    if (s3a) s3 += `<b>a. Prospettive lavorative e formative</b>\n${s3a}\n\n`;
+    if (s3b) s3 += `<b>b. Iniziative già intraprese</b>\n${s3b}\n\n`;
+    if (s3) sections.push({ title: '3. Prospettive future (Progetto di vita)', content: s3.trim() });
+
+    const body = document.getElementById('result-body');
+    body.innerHTML = sections.map(s =>
+      `<div class="result-section"><h3>${s.title}</h3><p>${s.content}</p></div>`
+    ).join('') || '<p style="color:var(--muted)">Nessuna risposta inserita.</p>';
+
+    document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+    document.querySelector('.progress-wrap').style.display = 'none';
+    const rc = document.getElementById('result-card');
+    rc.style.display = 'block';
+    rc.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function restart() {
+    current = 0;
+    document.querySelectorAll('textarea, input[type="text"]').forEach(el => el.value = '');
+    document.getElementById('result-card').style.display = 'none';
+    document.getElementById('result-card').classList.remove('active');
+    document.querySelector('.progress-wrap').style.display = 'block';
+    showStep(0);
+  }
+
+  showStep(0);
+</script>
+</body>
+</html>
