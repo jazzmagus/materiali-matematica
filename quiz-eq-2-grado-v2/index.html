@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quiz — Equazioni di 2° grado e Parabola</title>
+<title>Quiz Avanzato — Equazioni di 2° grado e Parabola</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
 <script>
 MathJax = {
@@ -23,7 +23,7 @@ MathJax = {
   --bg:#faf7f2; --surface:#fff; --surface-alt:#f0ebe1;
   --border:#e2dcd2; --border-light:#ece7dd;
   --text:#2c2520; --text-mid:#5a524a; --text-dim:#8a827a;
-  --accent:#c2185b; --accent-light:#fce4ec;
+  --accent:#6a1b9a; --accent-light:#f3e5f5;
   --blue:#3a6b8c; --blue-light:#e8f0f5;
   --green:#4a7c59; --green-light:#eaf5ed;
   --danger:#b33a3a; --danger-light:#fdf0f0;
@@ -55,7 +55,7 @@ body{font-family:'Source Sans 3','Georgia',serif;background:var(--bg);color:var(
 .meta-label{font-family:'Fira Code',monospace;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim)}
 .meta-value{font-size:.95rem;font-weight:600}
 .btn-start{margin-top:8px;font-family:'Source Sans 3',sans-serif;font-size:1rem;font-weight:700;padding:14px 36px;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer;transition:background .2s;letter-spacing:.3px}
-.btn-start:hover{background:#a8144e}
+.btn-start:hover{background:#4a0072}
 
 /* PROGRESS */
 .progress-wrap{margin-bottom:24px}
@@ -95,7 +95,7 @@ body{font-family:'Source Sans 3','Georgia',serif;background:var(--bg);color:var(
 .q-nav{display:flex;justify-content:space-between;align-items:center;margin-top:20px}
 .btn-next{font-family:'Source Sans 3',sans-serif;font-size:.92rem;font-weight:700;padding:11px 28px;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer;transition:background .2s;display:none}
 .btn-next.show{display:inline-block}
-.btn-next:hover{background:#a8144e}
+.btn-next:hover{background:#4a0072}
 .score-live{font-family:'Fira Code',monospace;font-size:.72rem;color:var(--text-dim)}
 
 /* RESULTS */
@@ -117,7 +117,7 @@ body{font-family:'Source Sans 3','Georgia',serif;background:var(--bg);color:var(
 /* RESULTS BUTTONS */
 .results-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
 .btn-retry{font-family:'Source Sans 3',sans-serif;font-size:.92rem;font-weight:700;padding:12px 28px;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer;transition:background .2s}
-.btn-retry:hover{background:#a8144e}
+.btn-retry:hover{background:#4a0072}
 .btn-lesson{font-family:'Source Sans 3',sans-serif;font-size:.92rem;padding:12px 24px;background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:8px;cursor:pointer;text-decoration:none;display:inline-block;transition:border-color .2s}
 .btn-lesson:hover{border-color:var(--accent);color:var(--accent)}
 
@@ -133,7 +133,7 @@ body{font-family:'Source Sans 3','Georgia',serif;background:var(--bg);color:var(
 <body>
 
 <div class="topbar">
-  <div class="topbar-brand">Quiz · Eq. 2° grado</div>
+  <div class="topbar-brand">Quiz · Eq. 2° grado — Avanzato</div>
   <div class="topbar-tag">IIS G.A. Remondini</div>
 </div>
 
@@ -141,13 +141,13 @@ body{font-family:'Source Sans 3','Georgia',serif;background:var(--bg);color:var(
   <!-- INTRO -->
   <div id="screen-intro">
     <div class="hero">
-      <div class="hero-tag">Test di preparazione</div>
+      <div class="hero-tag">Versione avanzata · preparazione verifica</div>
       <h1>Equazioni di <em>2° grado</em><br>e Parabola</h1>
-      <p class="hero-sub">20 domande a risposta multipla. Per ogni risposta sbagliata riceverai una breve spiegazione. Al termine vedrai il punteggio e un messaggio su come stai andando.</p>
+      <p class="hero-sub">30 domande a risposta multipla di livello avanzato: completamento del quadrato, equazioni con parametri, segno della parabola, intersezione parabola–retta e problemi applicati. Per ogni risposta sbagliata riceverai una spiegazione dettagliata.</p>
     </div>
     <div class="intro-meta">
-      <div class="meta-item"><span class="meta-label">Domande</span><span class="meta-value">20</span></div>
-      <div class="meta-item"><span class="meta-label">Tipo</span><span class="meta-value">Risposta multipla</span></div>
+      <div class="meta-item"><span class="meta-label">Domande</span><span class="meta-value">30</span></div>
+      <div class="meta-item"><span class="meta-label">Livello</span><span class="meta-value">Avanzato</span></div>
       <div class="meta-item"><span class="meta-label">Feedback</span><span class="meta-value">Immediato</span></div>
     </div>
     <button class="btn-start" onclick="startQuiz()">Inizia il test</button>
@@ -158,7 +158,7 @@ body{font-family:'Source Sans 3','Georgia',serif;background:var(--bg);color:var(
     <div class="progress-wrap">
       <div class="progress-info">
         <span class="progress-label">Progresso</span>
-        <span class="progress-frac" id="prog-frac">1 / 20</span>
+        <span class="progress-frac" id="prog-frac">1 / 30</span>
       </div>
       <div class="progress-bar"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
     </div>
@@ -182,7 +182,7 @@ body{font-family:'Source Sans 3','Georgia',serif;background:var(--bg);color:var(
     <div class="results-hero">
       <div class="hero-tag">IIS G.A. Remondini · Risultato</div>
       <div class="results-num" id="res-score">--</div>
-      <div class="results-den">su 20 domande</div>
+      <div class="results-den">su 30 domande</div>
       <div class="results-pct" id="res-pct"></div>
       <div class="results-bar-wrap"><div class="results-bar-fill" id="res-bar" style="width:0%"></div></div>
       <p class="results-msg" id="res-msg"></p>
@@ -191,6 +191,7 @@ body{font-family:'Source Sans 3','Georgia',serif;background:var(--bg);color:var(
     <div class="review-grid" id="res-grid"></div>
     <div class="results-btns">
       <button class="btn-retry" onclick="restart()">Riprova il test</button>
+      <a class="btn-lesson" href="../quiz-eq-2-grado/">Test base (20 domande)</a>
       <a class="btn-lesson" href="../parabola-eq-2-grado/">Torna alla lezione</a>
     </div>
   </div>
@@ -204,165 +205,141 @@ const Q = [
   // ─── CLASSIFICAZIONE ───
   {
     badge: "Classificazione",
-    q: "Quale delle seguenti è un'equazione <strong>pura</strong>?",
+    q: "Quale delle seguenti è un'equazione di secondo grado <strong>completa</strong>?",
     opts: [
-      "\\(3x^2 + 2x = 0\\)",
-      "\\(5x^2 - 7 = 0\\)",
-      "\\(2x^2 + 3x - 1 = 0\\)",
-      "\\(4x^2 = 0\\)"
+      "\\(4x^2 - 9 = 0\\)",
+      "\\(x^2 + 5x = 0\\)",
+      "\\(2x^2 - 3x + 4 = 0\\)",
+      "\\(3x^2 = 0\\)"
     ],
-    ans: 1,
-    exp: "Nell'equazione <strong>pura</strong> manca il termine in \\(x\\) (cioè \\(b = 0\\)), ma sono presenti sia \\(ax^2\\) che il termine noto \\(c\\). Solo \\(5x^2 - 7 = 0\\) ha questa struttura. Le altre sono: spuria (\\(c=0\\)), completa, monomia."
+    ans: 2,
+    exp: "Un'equazione è <strong>completa</strong> se \\(a \\neq 0\\), \\(b \\neq 0\\) e \\(c \\neq 0\\). Solo \\(2x^2 - 3x + 4 = 0\\) soddisfa questa condizione. Le altre: \\(4x^2 - 9 = 0\\) è <em>pura</em> (\\(b=0\\)); \\(x^2 + 5x = 0\\) è <em>spuria</em> (\\(c=0\\)); \\(3x^2 = 0\\) è <em>monomia</em> (\\(b=c=0\\))."
   },
   {
     badge: "Classificazione",
-    q: "L'equazione \\(7x^2 - 3x = 0\\) è di tipo:",
+    q: "L'equazione \\(5x^2 = 20\\) è di tipo:",
     opts: [
-      "Completa",
+      "Monomia",
       "Pura",
       "Spuria",
-      "Monomia"
-    ],
-    ans: 2,
-    exp: "Manca il termine noto (\\(c = 0\\)), ma sono presenti sia \\(ax^2\\) che \\(bx\\): è un'equazione <strong>spuria</strong>. Si risolve con il raccoglimento di \\(x\\), non con la formula del discriminante."
-  },
-  // ─── COEFFICIENTI ───
-  {
-    badge: "Forma canonica",
-    q: "Nell'equazione \\(3x^2 - 7x + 2 = 0\\), qual è il valore di \\(b\\)?",
-    opts: [
-      "\\(b = 3\\)",
-      "\\(b = 2\\)",
-      "\\(b = -7\\)",
-      "\\(b = 7\\)"
-    ],
-    ans: 2,
-    exp: "\\(b\\) è il coefficiente del termine in \\(x\\), incluso il segno. In \\(3x^2 \\mathbf{- 7}x + 2 = 0\\) il coefficiente di \\(x\\) è \\(-7\\). Attenzione: il segno fa parte del coefficiente."
-  },
-  {
-    badge: "Forma canonica",
-    q: "Quale forma canonica corrisponde all'equazione \\(2x^2 = 5x - 3\\)?",
-    opts: [
-      "\\(2x^2 - 5x + 3 = 0\\)",
-      "\\(2x^2 + 5x - 3 = 0\\)",
-      "\\(2x^2 + 5x + 3 = 0\\)",
-      "\\(-2x^2 + 5x - 3 = 0\\)"
-    ],
-    ans: 0,
-    exp: "Si portano tutti i termini al primo membro cambiando segno: \\(2x^2 - 5x + 3 = 0\\). Quindi \\(a=2,\\; b=-5,\\; c=3\\)."
-  },
-  // ─── MONOMIA E PURA ───
-  {
-    badge: "Equazione monomia",
-    q: "Qual è la soluzione di \\(4x^2 = 0\\)?",
-    opts: [
-      "\\(x = \\pm 2\\)",
-      "\\(x = 4\\)",
-      "\\(x = 0\\) (soluzione doppia)",
-      "Nessuna soluzione reale"
-    ],
-    ans: 2,
-    exp: "L'equazione monomia \\(ax^2 = 0\\) con \\(a \\neq 0\\) ha sempre e solo la soluzione \\(x = 0\\), detta <strong>doppia</strong>. Non confondere con \\(4x^2 = k\\) dove \\(k > 0\\)."
-  },
-  {
-    badge: "Equazione pura",
-    q: "Le soluzioni di \\(x^2 - 16 = 0\\) sono:",
-    opts: [
-      "\\(x = 4\\) soltanto",
-      "\\(x = \\pm 4\\)",
-      "\\(x = \\pm 8\\)",
-      "\\(x = \\pm 2\\)"
+      "Completa"
     ],
     ans: 1,
-    exp: "\\(x^2 = 16 \\Rightarrow x = \\pm\\sqrt{16} = \\pm 4\\). Un'equazione pura con secondo membro positivo ha sempre <strong>due soluzioni opposte</strong>."
+    exp: "Riscrivendo: \\(5x^2 - 20 = 0\\). Manca il termine in \\(x\\) (\\(b = 0\\)) ma il termine noto è presente (\\(c = -20 \\neq 0\\)): è <strong>pura</strong>. Le soluzioni: \\(x^2 = 4 \\Rightarrow x = \\pm 2\\)."
+  },
+  // ─── FORMA CANONICA ───
+  {
+    badge: "Forma canonica",
+    q: "La forma canonica di \\(3(x^2 - 2) = x(x + 4)\\) è:",
+    opts: [
+      "\\(2x^2 - 4x - 6 = 0\\)",
+      "\\(3x^2 - 6 = x^2 + 4x\\)",
+      "\\(2x^2 - 4x + 6 = 0\\)",
+      "\\(x^2 - 2x - 3 = 0\\)"
+    ],
+    ans: 0,
+    exp: "Espandendo: \\(3x^2 - 6 = x^2 + 4x\\). Portando tutto a sinistra: \\(3x^2 - x^2 - 4x - 6 = 0 \\Rightarrow 2x^2 - 4x - 6 = 0\\). Coefficienti: \\(a=2,\\; b=-4,\\; c=-6\\)."
+  },
+  {
+    badge: "Forma canonica",
+    q: "L'equazione \\(\\dfrac{x^2}{2} - 3x + 1 = 0\\), moltiplicata per 2, diventa:",
+    opts: [
+      "\\(x^2 - 6x + 2 = 0\\)",
+      "\\(x^2 - 3x + 2 = 0\\)",
+      "\\(2x^2 - 6x + 1 = 0\\)",
+      "\\(x^2 - 6x + 1 = 0\\)"
+    ],
+    ans: 0,
+    exp: "Moltiplicando ogni termine per 2: \\(\\dfrac{x^2}{2} \\cdot 2 - 3x \\cdot 2 + 1 \\cdot 2 = x^2 - 6x + 2 = 0\\). L'operazione preserva le soluzioni: le due forme sono equivalenti."
+  },
+  // ─── PURA CON CALCOLO ───
+  {
+    badge: "Equazione pura",
+    q: "Le soluzioni di \\(3x^2 - 27 = 0\\) sono:",
+    opts: [
+      "\\(x = \\pm 3\\)",
+      "\\(x = \\pm 9\\)",
+      "\\(x = 9\\) soltanto",
+      "\\(x = \\pm\\sqrt{27}\\)"
+    ],
+    ans: 0,
+    exp: "\\(3x^2 = 27 \\Rightarrow x^2 = 9 \\Rightarrow x = \\pm 3\\). Si divide prima per \\(3\\): non \\(x = \\pm\\sqrt{27}\\), che sarebbe il risultato scorretto di \\(\\sqrt{3 \\cdot 9}\\)."
   },
   {
     badge: "Equazione pura",
-    q: "L'equazione \\(2x^2 + 8 = 0\\) ha:",
+    q: "Risolvere \\(\\dfrac{x^2}{4} - 1 = 0\\).",
     opts: [
-      "Due soluzioni reali distinte",
-      "Una soluzione doppia: \\(x = 0\\)",
-      "Nessuna soluzione reale",
-      "\\(x = \\pm 2\\)"
+      "\\(x = \\pm 4\\)",
+      "\\(x = \\pm 2\\)",
+      "\\(x = 2\\) soltanto",
+      "\\(x = \\pm \\tfrac{1}{2}\\)"
     ],
-    ans: 2,
-    exp: "\\(2x^2 = -8 \\Rightarrow x^2 = -4\\). Un quadrato non può essere negativo: <strong>non esistono soluzioni reali</strong>. Geometricamente, la parabola \\(y = 2x^2 + 8\\) è tutta sopra l'asse \\(x\\)."
+    ans: 1,
+    exp: "\\(\\dfrac{x^2}{4} = 1 \\Rightarrow x^2 = 4 \\Rightarrow x = \\pm 2\\). L'errore tipico è calcolare \\(x = \\pm\\sqrt{1 \\cdot 4} = \\pm 2\\) saltando il passaggio \\(x^2 = 4\\), che coincide ma per ragioni sbagliate — meglio non saltarlo."
   },
   // ─── SPURIA ───
   {
     badge: "Equazione spuria",
-    q: "Per risolvere \\(3x^2 - 9x = 0\\), qual è il metodo corretto?",
+    q: "Le soluzioni di \\(4x^2 = 12x\\) sono:",
     opts: [
-      "Dividere entrambi i membri per \\(x\\): si ottiene \\(3x = 9\\), quindi \\(x = 3\\)",
-      "Applicare la formula con il discriminante",
-      "Raccogliere \\(x\\): \\(x(3x - 9) = 0\\), poi annullare ciascun fattore",
-      "Dividere per \\(3x\\) e ottenere \\(x - 3 = 0\\)"
+      "\\(x = 3\\) soltanto",
+      "\\(x_1 = 0,\\; x_2 = 3\\)",
+      "\\(x_1 = 0,\\; x_2 = -3\\)",
+      "\\(x = \\pm 3\\)"
     ],
-    ans: 2,
-    exp: "<strong>Non dividere mai per \\(x\\)</strong>: si perderebbe la soluzione \\(x_1 = 0\\). Il raccoglimento dà \\(x(3x - 9) = 0\\), quindi \\(x_1 = 0\\) oppure \\(3x - 9 = 0 \\Rightarrow x_2 = 3\\)."
+    ans: 1,
+    exp: "\\(4x^2 - 12x = 0 \\Rightarrow 4x(x - 3) = 0\\). Un prodotto è nullo se almeno un fattore è nullo: \\(x_1 = 0\\) oppure \\(x_2 = 3\\). Dividere per \\(4x\\) avrebbe eliminato \\(x_1 = 0\\)."
   },
   {
     badge: "Equazione spuria",
-    q: "Le soluzioni di \\(5x^2 + 20x = 0\\) sono:",
+    q: "Nell'equazione \\(2x^2 = 6x\\) uno studente divide entrambi i membri per \\(2x\\) e ottiene \\(x = 3\\). Cosa ha sbagliato?",
     opts: [
-      "\\(x_1 = 0\\) e \\(x_2 = 4\\)",
-      "\\(x_1 = 0\\) e \\(x_2 = -4\\)",
-      "\\(x = -4\\) (soluzione doppia)",
-      "\\(x_1 = 0\\) e \\(x_2 = 20\\)"
+      "Niente: la soluzione \\(x = 3\\) è corretta",
+      "Ha perso la soluzione \\(x_1 = 0\\) dividendo per \\(x\\)",
+      "Ha perso la soluzione \\(x_2 = 6\\)",
+      "Avrebbe dovuto dividere per \\(x^2\\)"
     ],
     ans: 1,
-    exp: "\\(5x(x + 4) = 0\\): primo fattore nullo \\(\\Rightarrow x_1 = 0\\); secondo fattore nullo \\(\\Rightarrow x_2 = -4\\). Attenzione al segno: \\(x_2 = -b/a = -20/5 = -4\\)."
+    exp: "\\(x = 3\\) è corretta, ma <strong>dividere per \\(x\\)</strong> è lecito solo se \\(x \\neq 0\\). Qui \\(x_1 = 0\\) è soluzione (\\(0 = 0\\) ✓) ma viene eliminata. Metodo corretto: \\(2x(x - 3) = 0 \\Rightarrow x_1 = 0,\\; x_2 = 3\\)."
   },
   // ─── DISCRIMINANTE ───
   {
     badge: "Discriminante",
-    q: "Qual è il discriminante di \\(2x^2 - 3x + 1 = 0\\)?",
+    q: "Qual è il discriminante di \\(x^2 - 3x + \\dfrac{9}{4} = 0\\)?",
     opts: [
-      "\\(\\Delta = 17\\)",
-      "\\(\\Delta = 1\\)",
-      "\\(\\Delta = -1\\)",
-      "\\(\\Delta = 9\\)"
+      "\\(\\Delta = 9\\)",
+      "\\(\\Delta = 0\\)",
+      "\\(\\Delta = \\tfrac{27}{4}\\)",
+      "\\(\\Delta = -\\tfrac{9}{4}\\)"
     ],
     ans: 1,
-    exp: "\\(\\Delta = b^2 - 4ac = (-3)^2 - 4 \\cdot 2 \\cdot 1 = 9 - 8 = 1\\). Ricorda: \\(b^2\\) è <em>sempre</em> positivo, qualunque sia il segno di \\(b\\)."
+    exp: "\\(\\Delta = (-3)^2 - 4 \\cdot 1 \\cdot \\dfrac{9}{4} = 9 - 9 = 0\\). Con \\(\\Delta = 0\\) l'equazione ha un'unica soluzione: \\(x = \\dfrac{3}{2}\\) (radice doppia). La parabola è tangente all'asse \\(x\\) nel vertice \\(x_V = \\dfrac{3}{2}\\)."
   },
   {
     badge: "Discriminante",
-    q: "Se \\(\\Delta = 0\\), l'equazione di secondo grado ha:",
+    q: "L'equazione \\(x^2 - 4x + k = 0\\) ha due soluzioni reali distinte se e solo se:",
     opts: [
-      "Due soluzioni reali distinte",
-      "Una radice doppia \\(x = -\\dfrac{b}{2a}\\)",
-      "Nessuna soluzione reale",
-      "Infinite soluzioni"
+      "\\(k < 4\\)",
+      "\\(k = 4\\)",
+      "\\(k > 4\\)",
+      "\\(k \\leq 4\\)"
     ],
-    ans: 1,
-    exp: "Con \\(\\Delta = 0\\) la formula dà \\(x = (-b \\pm 0) / (2a) = -b/(2a)\\): un unico valore, detto <strong>radice doppia</strong>. Geometricamente, la parabola è tangente all'asse \\(x\\) nel vertice."
+    ans: 0,
+    exp: "\\(\\Delta = (-4)^2 - 4k = 16 - 4k\\). Per due soluzioni distinte: \\(\\Delta > 0 \\Rightarrow 16 - 4k > 0 \\Rightarrow k < 4\\). Per \\(k = 4\\): radice doppia. Per \\(k > 4\\): nessuna soluzione reale."
   },
   {
     badge: "Discriminante",
-    q: "L'equazione \\(3x^2 - 2x + 5 = 0\\) ha:",
+    q: "Per quale valore di \\(m\\) (con \\(m \\neq 0\\)) l'equazione \\(mx^2 - 6x + 3 = 0\\) ha una radice doppia?",
     opts: [
-      "Due soluzioni reali distinte",
-      "Una soluzione doppia",
-      "Nessuna soluzione reale",
-      "\\(x = 0\\) come soluzione"
+      "\\(m = 2\\)",
+      "\\(m = 3\\)",
+      "\\(m = 4\\)",
+      "\\(m = 6\\)"
     ],
-    ans: 2,
-    exp: "\\(\\Delta = (-2)^2 - 4 \\cdot 3 \\cdot 5 = 4 - 60 = -56 < 0\\). Con \\(\\Delta < 0\\) <strong>non esistono soluzioni reali</strong>: la parabola è tutta sopra (o sotto) l'asse \\(x\\)."
+    ans: 1,
+    exp: "\\(\\Delta = (-6)^2 - 4 \\cdot m \\cdot 3 = 36 - 12m\\). Ponendo \\(\\Delta = 0\\): \\(36 - 12m = 0 \\Rightarrow m = 3\\). La radice doppia è \\(x = \\dfrac{6}{2 \\cdot 3} = 1\\)."
   },
   // ─── FORMULA RISOLUTIVA ───
-  {
-    badge: "Formula risolutiva",
-    q: "Le soluzioni di \\(x^2 - 5x + 6 = 0\\) sono:",
-    opts: [
-      "\\(x_1 = 1,\\; x_2 = 6\\)",
-      "\\(x_1 = 2,\\; x_2 = 3\\)",
-      "\\(x_1 = -2,\\; x_2 = -3\\)",
-      "\\(x_1 = 2,\\; x_2 = -3\\)"
-    ],
-    ans: 1,
-    exp: "\\(\\Delta = 25 - 24 = 1.\\quad x_{1,2} = (5 \\pm 1)/2 \\Rightarrow x_1 = 3,\\; x_2 = 2\\). Verifica: \\(3^2 - 5(3) + 6 = 9 - 15 + 6 = 0\\) ✓ e \\(2^2 - 5(2) + 6 = 4 - 10 + 6 = 0\\) ✓."
-  },
   {
     badge: "Formula risolutiva",
     q: "Le soluzioni di \\(2x^2 + x - 3 = 0\\) sono:",
@@ -373,80 +350,230 @@ const Q = [
       "\\(x_1 = \\tfrac{1}{2},\\; x_2 = -3\\)"
     ],
     ans: 0,
-    exp: "\\(\\Delta = 1^2 - 4 \\cdot 2 \\cdot (-3) = 1 + 24 = 25\\). Quindi \\(x_{1,2} = \\dfrac{-1 \\pm 5}{4}\\): \\(x_1 = \\dfrac{4}{4} = 1\\), \\(x_2 = \\dfrac{-6}{4} = -\\dfrac{3}{2}\\). Verifica: \\(2(1) + 1 - 3 = 0\\) ✓."
+    exp: "\\(\\Delta = 1 + 24 = 25\\). \\(x_{1,2} = \\dfrac{-1 \\pm 5}{4}\\): \\(x_1 = 1\\), \\(x_2 = -\\dfrac{3}{2}\\). Verifica: \\(2(1) + 1 - 3 = 0\\) ✓; \\(2 \\cdot \\tfrac{9}{4} - \\tfrac{3}{2} - 3 = \\tfrac{9}{2} - \\tfrac{3}{2} - 3 = 0\\) ✓."
   },
   {
-    badge: "Parabola — zeri",
-    q: "La parabola \\(y = x^2 - 5x + 6\\) interseca l'asse \\(x\\) nei punti:",
+    badge: "Formula risolutiva",
+    q: "Le soluzioni di \\(x^2 - 5x + 4 = 0\\) sono:",
     opts: [
-      "\\((1,\\; 0)\\) e \\((6,\\; 0)\\)",
-      "\\((2,\\; 0)\\) e \\((3,\\; 0)\\)",
-      "\\((-2,\\; 0)\\) e \\((-3,\\; 0)\\)",
-      "Non interseca l'asse \\(x\\)"
+      "\\(x_1 = 1,\\; x_2 = 4\\)",
+      "\\(x_1 = -1,\\; x_2 = -4\\)",
+      "\\(x_1 = 2,\\; x_2 = 3\\)",
+      "\\(x_1 = 1,\\; x_2 = -4\\)"
     ],
-    ans: 1,
-    exp: "Si pone \\(y = 0\\): \\(x^2 - 5x + 6 = 0\\). \\(\\Delta = 25 - 24 = 1\\), quindi \\(x_{1,2} = (5 \\pm 1)/2\\): \\(x_1 = 3\\), \\(x_2 = 2\\). Le intersezioni con l'asse \\(x\\) sono \\((2,\\, 0)\\) e \\((3,\\, 0)\\)."
+    ans: 0,
+    exp: "\\(\\Delta = 25 - 16 = 9\\). \\(x_{1,2} = \\dfrac{5 \\pm 3}{2}\\): \\(x_1 = 4\\), \\(x_2 = 1\\). Un modo rapido: cercare due numeri con somma \\(5\\) e prodotto \\(4\\) — sono \\(1\\) e \\(4\\)."
   },
+  {
+    badge: "Formula risolutiva",
+    q: "Le soluzioni di \\(3x^2 - 7x + 2 = 0\\) sono:",
+    opts: [
+      "\\(x_1 = 2,\\; x_2 = \\tfrac{1}{3}\\)",
+      "\\(x_1 = -2,\\; x_2 = -\\tfrac{1}{3}\\)",
+      "\\(x_1 = 2,\\; x_2 = 3\\)",
+      "\\(x_1 = \\tfrac{7}{3},\\; x_2 = 1\\)"
+    ],
+    ans: 0,
+    exp: "\\(\\Delta = 49 - 24 = 25\\). \\(x_{1,2} = \\dfrac{7 \\pm 5}{6}\\): \\(x_1 = 2\\), \\(x_2 = \\dfrac{1}{3}\\). Verifica: \\(3(4) - 14 + 2 = 0\\) ✓; \\(3 \\cdot \\tfrac{1}{9} - \\tfrac{7}{3} + 2 = \\tfrac{1}{3} - \\tfrac{7}{3} + 2 = 0\\) ✓."
+  },
+  // ─── VERIFICA ───
   {
     badge: "Verifica soluzione",
-    q: "Verificare se \\(x = 3\\) è soluzione di \\(x^2 - 2x - 3 = 0\\):",
+    q: "Quale dei seguenti valori è soluzione di \\(2x^2 - 5x + 2 = 0\\)?",
     opts: [
-      "No: \\(9 - 6 - 3 = 0\\) è falso",
-      "Sì: \\(9 - 6 - 3 = 0\\) è vero",
-      "Non si può verificare senza calcolare \\(\\Delta\\)",
-      "Sì, ma solo perché \\(\\Delta > 0\\)"
+      "\\(x = 1\\)",
+      "\\(x = 2\\)",
+      "\\(x = -2\\)",
+      "\\(x = \\tfrac{1}{4}\\)"
     ],
     ans: 1,
-    exp: "Sostituendo \\(x = 3\\): \\((3)^2 - 2(3) - 3 = 9 - 6 - 3 = 0\\) ✓. Con \\(\\Delta = 4 + 12 = 16\\) si trova anche \\(x_2 = (2 - 4)/2 = -1\\), verificabile: \\(1 + 2 - 3 = 0\\) ✓."
+    exp: "Sostituendo \\(x = 2\\): \\(2(4) - 5(2) + 2 = 8 - 10 + 2 = 0\\) ✓. L'altra soluzione è \\(x_2 = \\tfrac{1}{2}\\), non presente nelle opzioni. Con \\(x = 1\\): \\(2 - 5 + 2 = -1 \\neq 0\\) ✗."
+  },
+  // ─── COMPLETAMENTO DEL QUADRATO ───
+  {
+    badge: "Completamento del quadrato",
+    q: "Quale costante si aggiunge a \\(x^2 - 10x\\) per ottenere un quadrato perfetto?",
+    opts: [
+      "\\(5\\)",
+      "\\(25\\)",
+      "\\(100\\)",
+      "\\(10\\)"
+    ],
+    ans: 1,
+    exp: "Si usa la formula \\(\\left(\\dfrac{b}{2}\\right)^2\\): con \\(b = -10\\), si aggiunge \\(\\left(\\dfrac{10}{2}\\right)^2 = 25\\). Risultato: \\(x^2 - 10x + 25 = (x - 5)^2\\)."
+  },
+  {
+    badge: "Completamento del quadrato",
+    q: "Riscrivendo \\(x^2 - 8x - 9 = 0\\) completando il quadrato si ottiene:",
+    opts: [
+      "\\((x - 4)^2 = 25\\)",
+      "\\((x - 4)^2 = 7\\)",
+      "\\((x - 4)^2 = 16\\)",
+      "\\((x + 4)^2 = 25\\)"
+    ],
+    ans: 0,
+    exp: "\\(x^2 - 8x = 9\\). Aggiungo \\(\\left(\\dfrac{8}{2}\\right)^2 = 16\\) ad ambo i membri: \\(x^2 - 8x + 16 = 25 \\Rightarrow (x - 4)^2 = 25\\). Le soluzioni: \\(x - 4 = \\pm 5 \\Rightarrow x_1 = 9,\\; x_2 = -1\\)."
   },
   // ─── PARABOLA ───
   {
-    badge: "Parabola — concavità",
-    q: "La parabola \\(y = -3x^2 + 2x - 1\\) è aperta:",
+    badge: "Parabola — vertice",
+    q: "Il vertice della parabola \\(y = -2x^2 + 4x - 1\\) è:",
     opts: [
-      "Verso l'alto \\(\\cup\\)",
-      "Verso il basso \\(\\cap\\)",
-      "Non è una parabola perché \\(b \\neq 0\\)",
+      "\\(V(1,\\; 1)\\)",
+      "\\(V(-1,\\; -7)\\)",
+      "\\(V(1,\\; -1)\\)",
+      "\\(V(2,\\; -1)\\)"
+    ],
+    ans: 0,
+    exp: "\\(x_V = -\\dfrac{b}{2a} = -\\dfrac{4}{2 \\cdot (-2)} = 1\\). \\(y_V = -2(1)^2 + 4(1) - 1 = 1\\). Vertice \\(V(1, 1)\\). Con \\(a = -2 < 0\\) è un <strong>massimo</strong> della parabola."
+  },
+  {
+    badge: "Parabola — tangenza",
+    q: "La parabola \\(y = x^2 - 6x + 9\\) e l'asse \\(x\\):",
+    opts: [
+      "Non si intersecano (\\(\\Delta < 0\\))",
+      "Si intersecano in due punti distinti",
+      "Sono tangenti in un solo punto",
+      "Si intersecano in \\(x = \\pm 3\\)"
+    ],
+    ans: 2,
+    exp: "\\(\\Delta = 36 - 4 \\cdot 9 = 0\\). Con \\(\\Delta = 0\\) la parabola è <strong>tangente</strong> all'asse \\(x\\) nel suo vertice: \\(x_V = \\dfrac{6}{2} = 3\\). In forma di quadrato: \\(y = (x - 3)^2 \\geq 0\\), con \\(y = 0\\) solo per \\(x = 3\\)."
+  },
+  {
+    badge: "Parabola — intersezioni",
+    q: "Quante volte la parabola \\(y = x^2 + 2x + 5\\) interseca l'asse \\(x\\)?",
+    opts: [
+      "Due volte",
+      "Una volta (tangenza)",
+      "Nessuna volta",
       "Dipende dal valore di \\(x\\)"
     ],
-    ans: 1,
-    exp: "La concavità dipende solo dal segno di \\(a\\). Con \\(a = -3 < 0\\) la parabola è aperta <strong>verso il basso</strong> \\(\\cap\\). Il valore di \\(b\\) e \\(c\\) non influisce sulla concavità."
+    ans: 2,
+    exp: "\\(\\Delta = 4 - 20 = -16 < 0\\). Con \\(\\Delta < 0\\) la parabola <strong>non interseca</strong> l'asse \\(x\\). Poiché \\(a = 1 > 0\\) (concavità verso l'alto) la parabola si trova interamente sopra l'asse \\(x\\). Il vertice è \\(V(-1, 4)\\)."
+  },
+  {
+    badge: "Parabola — forma vertice",
+    q: "La parabola \\(y = (x - 3)^2 - 4\\) ha vertice in:",
+    opts: [
+      "\\(V(-3,\\; -4)\\)",
+      "\\(V(3,\\; 4)\\)",
+      "\\(V(3,\\; -4)\\)",
+      "\\(V(-3,\\; 4)\\)"
+    ],
+    ans: 2,
+    exp: "La forma \\(y = (x - h)^2 + k\\) ha vertice in \\(V(h, k)\\). Qui \\(h = 3\\) e \\(k = -4\\): vertice \\(V(3, -4)\\). Attenzione: \\((x - 3)^2\\) indica \\(h = +3\\), non \\(-3\\)."
+  },
+  {
+    badge: "Parabola — passante per punto",
+    q: "La parabola \\(y = x^2 + bx + 3\\) passa per il punto \\(P(1,\\; 6)\\). Qual è il valore di \\(b\\)?",
+    opts: [
+      "\\(b = 2\\)",
+      "\\(b = -2\\)",
+      "\\(b = 4\\)",
+      "\\(b = 8\\)"
+    ],
+    ans: 0,
+    exp: "Il punto \\(P(1, 6)\\) deve soddisfare l'equazione: \\(6 = 1 + b + 3 = 4 + b\\). Quindi \\(b = 2\\). La parabola è \\(y = x^2 + 2x + 3\\), con \\(\\Delta = 4 - 12 = -8 < 0\\) (non interseca l'asse \\(x\\))."
   },
   {
     badge: "Parabola — asse di simmetria",
-    q: "L'asse di simmetria della parabola \\(y = 2x^2 - 8x + 3\\) è la retta:",
+    q: "L'asse di simmetria della parabola \\(y = 3x^2 + 12x - 1\\) è la retta:",
     opts: [
       "\\(x = -2\\)",
       "\\(x = 2\\)",
+      "\\(x = -4\\)",
+      "\\(x = 4\\)"
+    ],
+    ans: 0,
+    exp: "\\(x_V = -\\dfrac{b}{2a} = -\\dfrac{12}{6} = -2\\). Attenzione: \\(b = 12 > 0\\), quindi \\(x_V\\) è negativo. L'asse è \\(x = -2\\). Il vertice è \\(V(-2,\\; -13)\\)."
+  },
+  // ─── SEGNO DELLA PARABOLA ───
+  {
+    badge: "Segno della parabola",
+    q: "La parabola \\(y = 2x^2 - 5x + 2\\) è positiva (\\(y > 0\\)) per:",
+    opts: [
+      "\\(x < \\tfrac{1}{2}\\) oppure \\(x > 2\\)",
+      "\\(\\tfrac{1}{2} < x < 2\\)",
+      "Tutti i valori di \\(x\\)",
+      "Nessun valore di \\(x\\)"
+    ],
+    ans: 0,
+    exp: "\\(\\Delta = 25 - 16 = 9 > 0\\). Le radici: \\(x_{1,2} = (5 \\pm 3)/4\\), quindi \\(x_1 = \\tfrac{1}{2}\\), \\(x_2 = 2\\). Con \\(a = 2 > 0\\) (parabola \\(\\cup\\)), \\(y > 0\\) <em>al di fuori</em> delle radici: \\(x < \\tfrac{1}{2}\\) oppure \\(x > 2\\)."
+  },
+  {
+    badge: "Segno della parabola",
+    q: "La parabola \\(y = -x^2 - 2x - 5\\) è:",
+    opts: [
+      "Sempre positiva",
+      "Sempre negativa",
+      "Positiva per \\(-5 < x < 1\\)",
+      "Nulla per \\(x = -1\\)"
+    ],
+    ans: 1,
+    exp: "\\(\\Delta = 4 - 4 \\cdot (-1) \\cdot (-5) = 4 - 20 = -16 < 0\\). Con \\(\\Delta < 0\\) e \\(a = -1 < 0\\) (parabola \\(\\cap\\)), la parabola è <strong>sempre negativa</strong>: non tocca mai l'asse \\(x\\) e si trova interamente sotto di esso."
+  },
+  // ─── EQUAZIONI CON PARAMETRO ───
+  {
+    badge: "Equazione con parametro",
+    q: "Per quali valori di \\(k\\) l'equazione \\(x^2 + kx + 9 = 0\\) ha una sola soluzione reale?",
+    opts: [
+      "\\(k = \\pm 3\\)",
+      "\\(k = \\pm 6\\)",
+      "\\(k = 3\\) soltanto",
+      "\\(k = 9\\)"
+    ],
+    ans: 1,
+    exp: "\\(\\Delta = k^2 - 4 \\cdot 9 = k^2 - 36\\). Per una sola soluzione: \\(\\Delta = 0 \\Rightarrow k^2 = 36 \\Rightarrow k = \\pm 6\\). Con \\(k = 6\\): \\(x = -3\\) (doppia); con \\(k = -6\\): \\(x = 3\\) (doppia)."
+  },
+  // ─── PROBLEMI APPLICATI ───
+  {
+    badge: "Problema — geometria",
+    q: "La base di un rettangolo è \\((x + 2)\\) cm e l'altezza \\((x - 1)\\) cm. Se l'area è \\(10\\) cm², qual è il valore di \\(x\\)?",
+    opts: [
+      "\\(x = 3\\)",
       "\\(x = 4\\)",
-      "\\(x = 8\\)"
+      "\\(x = 2\\)",
+      "\\(x = 5\\)"
     ],
-    ans: 1,
-    exp: "\\(x_V = -b/(2a) = -(-8)/(2 \\cdot 2) = 8/4 = 2\\). Attenzione al doppio segno negativo: \\(-(-8) = +8\\)."
+    ans: 0,
+    exp: "\\((x+2)(x-1) = 10 \\Rightarrow x^2 + x - 12 = 0\\). \\(\\Delta = 1 + 48 = 49\\), quindi \\(x = (-1 \\pm 7)/2\\): \\(x_1 = 3\\) (accettabile) e \\(x_2 = -4\\) (da scartare: altezza negativa). Base: 5 cm, altezza: 2 cm."
   },
   {
-    badge: "Parabola — vertice",
-    q: "Il vertice della parabola \\(y = x^2 - 4x + 5\\) è:",
+    badge: "Problema — somma e prodotto",
+    q: "La somma di due numeri è \\(10\\) e il loro prodotto è \\(21\\). L'equazione che li descrive è:",
     opts: [
-      "\\(V(-2,\\; 1)\\)",
-      "\\(V(2,\\; 1)\\)",
-      "\\(V(2,\\; -1)\\)",
-      "\\(V(4,\\; 5)\\)"
+      "\\(x^2 - 10x + 21 = 0\\)",
+      "\\(x^2 + 10x + 21 = 0\\)",
+      "\\(x^2 - 10x - 21 = 0\\)",
+      "\\(x^2 + 10x - 21 = 0\\)"
     ],
-    ans: 1,
-    exp: "\\(x_V = -(-4)/(2 \\cdot 1) = 2\\). \\(y_V = (2)^2 - 4(2) + 5 = 4 - 8 + 5 = 1\\). Vertice: \\(V(2,\\, 1)\\)."
+    ans: 0,
+    exp: "Chiamiamo i due numeri \\(r_1\\) e \\(r_2\\). Con \\(r_1 + r_2 = 10\\) e \\(r_1 r_2 = 21\\), l'equazione è \\(t^2 - (r_1+r_2)t + r_1 r_2 = 0\\), cioè \\(t^2 - 10t + 21 = 0\\). Le radici sono \\(3\\) e \\(7\\) (\\(\\Delta = 100 - 84 = 16\\))."
   },
+  // ─── INTERSEZIONE PARABOLA–RETTA ───
   {
-    badge: "Parabola — intersezione asse y",
-    q: "La parabola \\(y = 3x^2 - 5x + 7\\) interseca l'asse \\(y\\) nel punto:",
+    badge: "Parabola — retta",
+    q: "In quanti punti la parabola \\(y = x^2 + 1\\) interseca la retta \\(y = 3x - 1\\)?",
     opts: [
-      "\\((0,\\; -5)\\)",
-      "\\((0,\\; 3)\\)",
-      "\\((0,\\; 7)\\)",
-      "\\((0,\\; 5)\\)"
+      "In nessun punto",
+      "In un solo punto (tangenza)",
+      "In due punti distinti",
+      "Non si può determinare"
     ],
     ans: 2,
-    exp: "Si pone \\(x = 0\\): \\(y = 3(0)^2 - 5(0) + 7 = 7\\). Il punto è \\((0, 7)\\), che coincide sempre con il <strong>termine noto \\(c\\)</strong> dell'equazione della parabola."
+    exp: "Si imposta il sistema: \\(x^2 + 1 = 3x - 1 \\Rightarrow x^2 - 3x + 2 = 0\\). \\(\\Delta = 9 - 8 = 1 > 0\\): due intersezioni. Ascisse: \\(x_1 = 1\\), \\(x_2 = 2\\). Punti: \\((1,\\, 2)\\) e \\((2,\\, 5)\\)."
+  },
+  {
+    badge: "Parabola — tangente",
+    q: "Per quale valore di \\(q\\) la retta \\(y = x + q\\) è tangente alla parabola \\(y = x^2\\)?",
+    opts: [
+      "\\(q = 0\\)",
+      "\\(q = -\\tfrac{1}{4}\\)",
+      "\\(q = 1\\)",
+      "\\(q = \\tfrac{1}{4}\\)"
+    ],
+    ans: 1,
+    exp: "Si imposta \\(x^2 = x + q \\Rightarrow x^2 - x - q = 0\\). La retta è tangente se \\(\\Delta = 0\\): \\(1 + 4q = 0 \\Rightarrow q = -\\tfrac{1}{4}\\). Il punto di tangenza: \\(x = \\tfrac{1}{2}\\), \\(y = \\tfrac{1}{4}\\), cioè \\(\\left(\\tfrac{1}{2},\\, \\tfrac{1}{4}\\right)\\)."
   }
 ];
 
@@ -456,7 +583,7 @@ const Q = [
 let cur = 0;
 let score = 0;
 let answered = false;
-let results = []; // true/false per ogni domanda
+let results = [];
 
 // ══════════════════════════════════════════
 // FUNZIONI
@@ -542,10 +669,10 @@ function showResults() {
   }, 100);
 
   const msgs = [
-    [18, "Eccellente. Vai alla verifica con piena fiducia — sei pronto."],
-    [15, "Molto bene! Un piccolo ripasso finale e sei al top."],
-    [11, "Sei sulla buona strada. Ricontrolla le domande sbagliate e riprova."],
-    [7,  "C'è ancora del lavoro da fare. Rileggi la lezione e riprova il test."],
+    [27, "Eccellente. Sei pronto per la verifica — ottimo lavoro."],
+    [23, "Molto bene! Rivedi i pochi errori e sarai al top."],
+    [17, "Buona base. Ricontrolla i temi dove hai sbagliato e riprova."],
+    [11, "C'è ancora del lavoro da fare. Rileggi la lezione e riprova."],
     [0,  "Non mollare. Parti dalla teoria, studia con calma e riprova."]
   ];
   const msg = msgs.find(m => score >= m[0]);
