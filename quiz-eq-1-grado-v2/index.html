@@ -24,7 +24,6 @@ MathJax = {
   --border:#e2dcd2; --border-light:#ece7dd;
   --text:#2c2520; --text-mid:#5a524a; --text-dim:#8a827a;
   --accent:#1a5276; --accent-light:#eaf2f8;
-  --blue:#3a6b8c; --blue-light:#e8f0f5;
   --green:#4a7c59; --green-light:#eaf5ed;
   --danger:#b33a3a; --danger-light:#fdf0f0;
   --radius:10px; --shadow:0 2px 12px rgba(44,37,32,.08);
@@ -33,22 +32,18 @@ MathJax = {
 html{scroll-behavior:smooth}
 body{font-family:'Source Sans 3','Georgia',serif;background:var(--bg);color:var(--text);line-height:1.75;font-size:17px;opacity:0;transition:opacity .3s}
 
-/* TOPBAR */
 .topbar{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,247,242,.93);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;padding:0 clamp(16px,4vw,40px);gap:16px}
 .topbar-brand{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--accent);white-space:nowrap}
 .topbar-tag{font-family:'Fira Code',monospace;font-size:.68rem;color:var(--text-dim);letter-spacing:1px}
 
-/* CONTAINER */
 .container{max-width:700px;margin:0 auto;padding:84px clamp(20px,5vw,40px) 80px}
 
-/* HERO */
 .hero{margin-bottom:36px;padding-bottom:28px;border-bottom:2px solid var(--border)}
 .hero-tag{font-family:'Fira Code',monospace;font-size:.72rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
 .hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,5vw,2.3rem);font-weight:800;line-height:1.2;margin-bottom:10px}
 .hero h1 em{font-style:italic;color:var(--accent)}
 .hero-sub{font-size:.97rem;color:var(--text-mid);line-height:1.65;max-width:540px}
 
-/* INTRO */
 .intro-meta{display:flex;gap:24px;margin:24px 0;flex-wrap:wrap}
 .meta-item{display:flex;flex-direction:column;gap:2px}
 .meta-label{font-family:'Fira Code',monospace;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim)}
@@ -56,7 +51,6 @@ body{font-family:'Source Sans 3','Georgia',serif;background:var(--bg);color:var(
 .btn-start{margin-top:8px;font-family:'Source Sans 3',sans-serif;font-size:1rem;font-weight:700;padding:14px 36px;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer;transition:background .2s;letter-spacing:.3px}
 .btn-start:hover{background:#154360}
 
-/* PROGRESS */
 .progress-wrap{margin-bottom:24px}
 .progress-info{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
 .progress-label{font-family:'Fira Code',monospace;font-size:.7rem;color:var(--text-dim);letter-spacing:.5px}
@@ -64,12 +58,10 @@ body{font-family:'Source Sans 3','Georgia',serif;background:var(--bg);color:var(
 .progress-bar{height:4px;background:var(--border);border-radius:2px;overflow:hidden}
 .progress-fill{height:100%;background:var(--accent);border-radius:2px;transition:width .4s ease}
 
-/* QUESTION CARD */
 .q-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px 30px;box-shadow:var(--shadow)}
 .q-badge{font-family:'Fira Code',monospace;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim);margin-bottom:14px}
 .q-text{font-size:1.03rem;font-weight:500;line-height:1.65;margin-bottom:22px;color:var(--text)}
 
-/* OPTIONS */
 .options{display:flex;flex-direction:column;gap:9px}
 .opt{display:flex;align-items:flex-start;gap:14px;padding:13px 16px;border:1.5px solid var(--border);border-radius:8px;cursor:pointer;background:var(--surface);transition:border-color .15s,background .15s;user-select:none}
 .opt:hover:not(.locked){border-color:var(--accent);background:var(--accent-light)}
@@ -81,7 +73,6 @@ body{font-family:'Source Sans 3','Georgia',serif;background:var(--bg);color:var(
 .opt.wrong .opt-letter{color:var(--danger)}
 .opt.locked{cursor:default}
 
-/* FEEDBACK */
 .feedback{margin-top:18px;padding:14px 18px;border-radius:8px;font-size:.92rem;line-height:1.6;display:none}
 .feedback.show{display:block}
 .feedback.fb-ok{background:var(--green-light);border:1px solid var(--green)}
@@ -90,14 +81,12 @@ body{font-family:'Source Sans 3','Georgia',serif;background:var(--bg);color:var(
 .feedback.fb-ok .fb-label{color:var(--green)}
 .feedback.fb-err .fb-label{color:var(--danger)}
 
-/* NAV BOTTOM */
 .q-nav{display:flex;justify-content:space-between;align-items:center;margin-top:20px}
 .btn-next{font-family:'Source Sans 3',sans-serif;font-size:.92rem;font-weight:700;padding:11px 28px;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer;transition:background .2s;display:none}
 .btn-next.show{display:inline-block}
 .btn-next:hover{background:#154360}
 .score-live{font-family:'Fira Code',monospace;font-size:.72rem;color:var(--text-dim)}
 
-/* RESULTS */
 .results-hero{text-align:center;margin-bottom:36px;padding-bottom:28px;border-bottom:2px solid var(--border)}
 .results-num{font-family:'Playfair Display',serif;font-size:5rem;font-weight:800;line-height:1;color:var(--accent)}
 .results-den{font-family:'Fira Code',monospace;font-size:1.2rem;color:var(--text-dim);margin-top:4px}
@@ -106,14 +95,12 @@ body{font-family:'Source Sans 3','Georgia',serif;background:var(--bg);color:var(
 .results-bar-fill{height:100%;border-radius:4px;background:var(--accent);transition:width 1s ease}
 .results-msg{font-family:'Playfair Display',serif;font-size:1.15rem;font-style:italic;color:var(--text-mid);margin:20px auto;max-width:440px;line-height:1.5}
 
-/* REVIEW GRID */
 .review-title{font-family:'Fira Code',monospace;font-size:.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim);margin:28px 0 12px}
 .review-grid{display:grid;grid-template-columns:repeat(10,1fr);gap:6px;margin-bottom:32px}
 .rev-cell{aspect-ratio:1;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Fira Code',monospace;font-size:.72rem;font-weight:600}
 .rev-cell.ok{background:var(--green-light);color:var(--green);border:1px solid var(--green)}
 .rev-cell.err{background:var(--danger-light);color:var(--danger);border:1px solid var(--danger)}
 
-/* RESULTS BUTTONS */
 .results-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
 .btn-retry{font-family:'Source Sans 3',sans-serif;font-size:.92rem;font-weight:700;padding:12px 28px;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer;transition:background .2s}
 .btn-retry:hover{background:#154360}
@@ -142,11 +129,11 @@ body{font-family:'Source Sans 3','Georgia',serif;background:var(--bg);color:var(
     <div class="hero">
       <div class="hero-tag">Versione avanzata · preparazione verifica</div>
       <h1>Equazioni di <em>1° grado</em><br>e Fattorizzazione</h1>
-      <p class="hero-sub">30 domande a risposta multipla di livello intermedio-avanzato: equazioni con parentesi multiple, prodotti notevoli che si semplificano, equazioni con frazioni, fattorizzazione e legge di annullamento del prodotto. Per ogni risposta sbagliata riceverai una spiegazione dettagliata.</p>
+      <p class="hero-sub">30 domande a risposta multipla: circa metà sono domande teoriche e di riconoscimento (classificazione, principi, casi particolari), la restante metà sono esercizi con parentesi multiple, frazioni e fattorizzazione. Per ogni risposta sbagliata riceverai una spiegazione dettagliata.</p>
     </div>
     <div class="intro-meta">
       <div class="meta-item"><span class="meta-label">Domande</span><span class="meta-value">30</span></div>
-      <div class="meta-item"><span class="meta-label">Livello</span><span class="meta-value">Avanzato</span></div>
+      <div class="meta-item"><span class="meta-label">Livello</span><span class="meta-value">Intermedio–Avanzato</span></div>
       <div class="meta-item"><span class="meta-label">Feedback</span><span class="meta-value">Immediato</span></div>
     </div>
     <button class="btn-start" onclick="startQuiz()">Inizia il test</button>
@@ -197,38 +184,73 @@ body{font-family:'Source Sans 3','Georgia',serif;background:var(--bg);color:var(
 </div>
 
 <script>
-// ══════════════════════════════════════════
-// DOMANDE
-// ══════════════════════════════════════════
 const Q = [
 
-  // ─── EQUAZIONI LINEARI CON PARENTESI ───
+  // ─── TEORIA E CLASSIFICAZIONE ───
   {
-    badge: "Equazione lineare",
-    q: "Qual è la soluzione di \\(5x + 2(x+1) - 3x = 4x - 3 + x\\)?",
+    badge: "Classificazione",
+    q: "Quale delle seguenti è un'equazione di <strong>1° grado</strong>?",
     opts: [
-      "\\(x = 5\\)",
-      "\\(x = -5\\)",
-      "\\(x = 3\\)",
-      "\\(x = 1\\)"
+      "\\(3x^2 - 5 = 0\\)",
+      "\\(2x - 7 = 0\\)",
+      "\\(x(x+1) = 0\\)",
+      "\\((x-2)(x+1) = 3\\)"
     ],
-    ans: 0,
-    exp: "Sinistra: \\(5x + 2x + 2 - 3x = 4x + 2\\). Destra: \\(4x - 3 + x = 5x - 3\\). Quindi \\(4x + 2 = 5x - 3 \\Rightarrow -x = -5 \\Rightarrow x = 5\\)."
+    ans: 1,
+    exp: "\\(2x - 7 = 0\\) è di 1° grado perché la variabile compare con esponente 1. Le altre contengono \\(x^2\\) (esplicito o implicito nel prodotto), quindi sono di 2° grado."
   },
   {
-    badge: "Equazione lineare",
-    q: "Qual è la soluzione di \\(3(x-2) - 40 = 9 + 7(x-9)\\)?",
+    badge: "Terminologia",
+    q: "Nell'equazione \\(4x - 8 = 2\\), qual è il <strong>coefficiente</strong> di \\(x\\)?",
     opts: [
-      "\\(x = 2\\)",
-      "\\(x = -2\\)",
-      "\\(x = 8\\)",
-      "\\(x = 4\\)"
+      "\\(-8\\)",
+      "\\(4\\)",
+      "\\(2\\)",
+      "\\(-2\\)"
     ],
-    ans: 0,
-    exp: "Sinistra: \\(3x - 6 - 40 = 3x - 46\\). Destra: \\(9 + 7x - 63 = 7x - 54\\). Quindi \\(3x - 46 = 7x - 54 \\Rightarrow -4x = -8 \\Rightarrow x = 2\\)."
+    ans: 1,
+    exp: "Il coefficiente di \\(x\\) è il numero che lo moltiplica: in \\(4x\\) è \\(4\\). Il termine \\(-8\\) è il termine noto, e \\(2\\) è il termine noto al secondo membro."
   },
   {
-    badge: "Parentesi multiple",
+    badge: "Principi di equivalenza",
+    q: "Quale delle seguenti operazioni, applicata ad <strong>entrambi i membri</strong>, <strong>non</strong> altera le soluzioni di un'equazione?",
+    opts: [
+      "Moltiplicare per 0",
+      "Dividere per \\(x\\)",
+      "Sommare lo stesso numero reale",
+      "Elevare al quadrato"
+    ],
+    ans: 2,
+    exp: "Sommare (o sottrarre) lo stesso numero a entrambi i membri è il <strong>1° principio di equivalenza</strong> e conserva le soluzioni. Moltiplicare per 0 annulla l'equazione; dividere per \\(x\\) perde la soluzione \\(x=0\\); elevare al quadrato può introdurre soluzioni spurie."
+  },
+  {
+    badge: "Caso particolare",
+    q: "L'equazione \\(3x + 5 = 3x - 2\\) è:",
+    opts: [
+      "Determinata, con soluzione \\(x = -\\dfrac{7}{6}\\)",
+      "Impossibile",
+      "Indeterminata",
+      "Di secondo grado"
+    ],
+    ans: 1,
+    exp: "Sottraendo \\(3x\\) da entrambi i membri: \\(5 = -2\\), che è <strong>falso</strong>. L'equazione è <strong>impossibile</strong>: non ha soluzioni."
+  },
+  {
+    badge: "Caso particolare",
+    q: "L'equazione \\(4(x+2) = 4x + 8\\) è:",
+    opts: [
+      "Determinata con \\(x = 0\\)",
+      "Determinata con \\(x = 8\\)",
+      "Impossibile",
+      "Indeterminata"
+    ],
+    ans: 3,
+    exp: "Sviluppando: \\(4x + 8 = 4x + 8\\), cioè \\(0 = 0\\). È vera per qualsiasi valore di \\(x\\): l'equazione è <strong>indeterminata</strong> (infinite soluzioni)."
+  },
+
+  // ─── ESERCIZIO ───
+  {
+    badge: "Esercizio · Parentesi",
     q: "Qual è la soluzione di \\(4(x-3) - 3(x-5) = 3(x+1)\\)?",
     opts: [
       "\\(x = 0\\)",
@@ -239,8 +261,48 @@ const Q = [
     ans: 0,
     exp: "Sinistra: \\(4x - 12 - 3x + 15 = x + 3\\). Destra: \\(3x + 3\\). Quindi \\(x + 3 = 3x + 3 \\Rightarrow -2x = 0 \\Rightarrow x = 0\\)."
   },
+
+  // ─── CALCOLI RAPIDI ───
   {
-    badge: "Parentesi multiple",
+    badge: "Calcolo rapido",
+    q: "Qual è la soluzione di \\(5x = -15\\)?",
+    opts: [
+      "\\(x = 3\\)",
+      "\\(x = -3\\)",
+      "\\(x = 75\\)",
+      "\\(x = -75\\)"
+    ],
+    ans: 1,
+    exp: "Si divide entrambi i membri per 5: \\(x = \\dfrac{-15}{5} = -3\\)."
+  },
+  {
+    badge: "Calcolo rapido",
+    q: "Qual è la soluzione di \\(-2x + 6 = 0\\)?",
+    opts: [
+      "\\(x = -3\\)",
+      "\\(x = 3\\)",
+      "\\(x = 6\\)",
+      "\\(x = -6\\)"
+    ],
+    ans: 1,
+    exp: "\\(-2x = -6 \\Rightarrow x = \\dfrac{-6}{-2} = 3\\). Attenzione ai segni: dividendo un negativo per un negativo si ottiene un positivo."
+  },
+  {
+    badge: "Calcolo rapido",
+    q: "Qual è la soluzione di \\(3x - 7 = 2x + 1\\)?",
+    opts: [
+      "\\(x = 8\\)",
+      "\\(x = -8\\)",
+      "\\(x = 6\\)",
+      "\\(x = -6\\)"
+    ],
+    ans: 0,
+    exp: "Raccogliendo le \\(x\\) a sinistra e i numeri a destra: \\(3x - 2x = 1 + 7 \\Rightarrow x = 8\\)."
+  },
+
+  // ─── ESERCIZIO ───
+  {
+    badge: "Esercizio · Parentesi",
     q: "Qual è la soluzione di \\(4(2x-3) - 5(3x-2) = 8(1-x)\\)?",
     opts: [
       "\\(x = 10\\)",
@@ -251,8 +313,48 @@ const Q = [
     ans: 0,
     exp: "Sinistra: \\(8x - 12 - 15x + 10 = -7x - 2\\). Destra: \\(8 - 8x\\). Quindi \\(-7x - 2 = 8 - 8x \\Rightarrow x = 10\\)."
   },
+
+  // ─── LEGGE DI ANNULLAMENTO ───
   {
-    badge: "Parentesi multiple",
+    badge: "Legge zero · prodotto",
+    q: "La legge di annullamento del prodotto afferma che \\(A \\cdot B = 0\\) se e solo se:",
+    opts: [
+      "\\(A = B\\)",
+      "\\(A = 0\\) e \\(B = 0\\) contemporaneamente",
+      "\\(A = 0\\) oppure \\(B = 0\\)",
+      "\\(A + B = 0\\)"
+    ],
+    ans: 2,
+    exp: "Il prodotto è zero se <strong>almeno uno</strong> dei fattori è zero. Non è necessario che lo siano entrambi: \\(3 \\cdot 0 = 0\\) anche se \\(A = 3 \\neq 0\\)."
+  },
+  {
+    badge: "Legge zero · prodotto",
+    q: "Quante soluzioni ha l'equazione \\(x(x-5) = 0\\)?",
+    opts: [
+      "0",
+      "1",
+      "2",
+      "Infinite"
+    ],
+    ans: 2,
+    exp: "Per la legge di annullamento del prodotto: \\(x = 0\\) oppure \\(x - 5 = 0 \\Rightarrow x = 5\\). Ci sono <strong>due</strong> soluzioni distinte."
+  },
+  {
+    badge: "Legge zero · prodotto",
+    q: "Nell'equazione \\((x-2)(x+5) = 0\\), le soluzioni sono:",
+    opts: [
+      "\\(x = 2\\) oppure \\(x = -5\\)",
+      "\\(x = -2\\) oppure \\(x = 5\\)",
+      "\\(x = 2\\) e \\(x = 5\\)",
+      "\\(x = -2\\) oppure \\(x = -5\\)"
+    ],
+    ans: 0,
+    exp: "Primo fattore: \\(x - 2 = 0 \\Rightarrow x = 2\\). Secondo: \\(x + 5 = 0 \\Rightarrow x = -5\\). Attenzione al segno: il fattore \\((x+5)\\) dà radice negativa."
+  },
+
+  // ─── ESERCIZIO ───
+  {
+    badge: "Esercizio · Parentesi",
     q: "Qual è la soluzione di \\(3(1-x) + 5(1-x) = 3(x-1) + 1\\)?",
     opts: [
       "\\(x = \\dfrac{10}{11}\\)",
@@ -261,48 +363,26 @@ const Q = [
       "\\(x = 2\\)"
     ],
     ans: 0,
-    exp: "Sinistra: \\(3 - 3x + 5 - 5x = 8 - 8x\\). Destra: \\(3x - 3 + 1 = 3x - 2\\). Quindi \\(8 - 8x = 3x - 2 \\Rightarrow 10 = 11x \\Rightarrow x = \\dfrac{10}{11}\\)."
-  },
-  {
-    badge: "Parentesi multiple",
-    q: "Qual è la soluzione di \\(2(x+1) - 3x = x - 3(x-1)\\)?",
-    opts: [
-      "\\(x = 1\\)",
-      "\\(x = -1\\)",
-      "\\(x = 3\\)",
-      "\\(x = \\dfrac{1}{2}\\)"
-    ],
-    ans: 0,
-    exp: "Sinistra: \\(2x + 2 - 3x = -x + 2\\). Destra: \\(x - 3x + 3 = -2x + 3\\). Quindi \\(-x + 2 = -2x + 3 \\Rightarrow x = 1\\)."
-  },
-  {
-    badge: "Parentesi multiple",
-    q: "Qual è la soluzione di \\((7-3x) \\cdot 2 + x = 5 - 3(5-x)\\)?",
-    opts: [
-      "\\(x = 3\\)",
-      "\\(x = -3\\)",
-      "\\(x = 2\\)",
-      "\\(x = 6\\)"
-    ],
-    ans: 0,
-    exp: "Sinistra: \\(14 - 6x + x = 14 - 5x\\). Destra: \\(5 - 15 + 3x = -10 + 3x\\). Quindi \\(14 - 5x = -10 + 3x \\Rightarrow 24 = 8x \\Rightarrow x = 3\\)."
-  },
-  {
-    badge: "Parentesi multiple",
-    q: "Qual è la soluzione di \\(7(x-18) = 3(x-14) - 20\\)?",
-    opts: [
-      "\\(x = 16\\)",
-      "\\(x = -16\\)",
-      "\\(x = 4\\)",
-      "\\(x = 8\\)"
-    ],
-    ans: 0,
-    exp: "Sinistra: \\(7x - 126\\). Destra: \\(3x - 42 - 20 = 3x - 62\\). Quindi \\(7x - 126 = 3x - 62 \\Rightarrow 4x = 64 \\Rightarrow x = 16\\)."
+    exp: "Sinistra: \\(8 - 8x\\). Destra: \\(3x - 2\\). Quindi \\(8 - 8x = 3x - 2 \\Rightarrow 10 = 11x \\Rightarrow x = \\dfrac{10}{11}\\)."
   },
 
-  // ─── PRODOTTI NOTEVOLI CHE SI SEMPLIFICANO ───
+  // ─── RICONOSCIMENTO RIDUZIONE ───
   {
-    badge: "Prodotti notevoli",
+    badge: "Riconoscimento",
+    q: "Quale di queste equazioni, <strong>dopo lo sviluppo</strong>, si riduce a un'equazione di <strong>1° grado</strong>?",
+    opts: [
+      "\\(x^2 - 4 = 0\\)",
+      "\\(x^2 + 3x = 0\\)",
+      "\\((x+3)^2 = x^2\\)",
+      "\\((x+1)(x-1) = 0\\)"
+    ],
+    ans: 2,
+    exp: "Sviluppando \\((x+3)^2 = x^2\\): \\(x^2 + 6x + 9 = x^2\\). Il termine \\(x^2\\) si cancella e rimane \\(6x + 9 = 0\\), equazione di 1° grado. Le altre rimangono di 2° anche dopo lo sviluppo."
+  },
+
+  // ─── ESERCIZI SU PRODOTTI NOTEVOLI ───
+  {
+    badge: "Esercizio · Prodotti notevoli",
     q: "Qual è la soluzione di \\((x+2)^2 = x^2\\)?",
     opts: [
       "\\(x = -1\\)",
@@ -311,46 +391,38 @@ const Q = [
       "Impossibile"
     ],
     ans: 0,
-    exp: "Sviluppando: \\(x^2 + 4x + 4 = x^2\\). I termini \\(x^2\\) si cancellano: \\(4x + 4 = 0 \\Rightarrow x = -1\\). L'equazione apparentemente di 2° grado si riduce al 1° grado."
+    exp: "Sviluppando: \\(x^2 + 4x + 4 = x^2\\). Il termine \\(x^2\\) si cancella: \\(4x + 4 = 0 \\Rightarrow x = -1\\). L'equazione, pur sembrando di 2°, è in realtà di 1°."
   },
   {
-    badge: "Prodotti notevoli",
-    q: "Qual è la soluzione di \\((x-6)(x+6) = (x-6)^2\\)?",
-    opts: [
-      "\\(x = 6\\)",
-      "\\(x = -6\\)",
-      "\\(x = \\pm 6\\)",
-      "\\(x = 36\\)"
-    ],
-    ans: 0,
-    exp: "Sviluppando: \\(x^2 - 36 = x^2 - 12x + 36\\). Si cancella \\(x^2\\): \\(-36 = -12x + 36 \\Rightarrow 12x = 72 \\Rightarrow x = 6\\)."
-  },
-  {
-    badge: "Prodotti notevoli",
+    badge: "Esercizio · Prodotti notevoli",
     q: "L'equazione \\((x-1)^2 = x(x-2)\\) è:",
     opts: [
-      "Impossibile",
       "Determinata con \\(x = 1\\)",
       "Determinata con \\(x = -1\\)",
-      "Indeterminata"
+      "Indeterminata",
+      "Impossibile"
     ],
-    ans: 0,
-    exp: "Sviluppando: \\(x^2 - 2x + 1 = x^2 - 2x\\). Si cancella \\(x^2 - 2x\\): rimane \\(1 = 0\\), che è falso. L'equazione è <strong>impossibile</strong> (nessuna soluzione)."
+    ans: 3,
+    exp: "Sviluppando: \\(x^2 - 2x + 1 = x^2 - 2x\\). Cancellando \\(x^2 - 2x\\) da entrambi i membri: \\(1 = 0\\). È falso: l'equazione è <strong>impossibile</strong>."
   },
+
+  // ─── CASO PARTICOLARE CON PRODOTTI ───
   {
-    badge: "Prodotti notevoli",
-    q: "Qual è la soluzione di \\((x+1)^2 = x^2 + 1\\)?",
+    badge: "Caso particolare",
+    q: "L'equazione \\((x-3)(x+3) = (x-1)(x+1) - 8\\) è:",
     opts: [
-      "\\(x = 0\\)",
-      "\\(x = 1\\)",
-      "\\(x = -1\\)",
+      "Determinata con \\(x = 0\\)",
+      "Determinata con \\(x = 4\\)",
+      "Impossibile",
       "Indeterminata"
     ],
-    ans: 0,
-    exp: "Sviluppando: \\(x^2 + 2x + 1 = x^2 + 1\\). Si cancella \\(x^2 + 1\\): \\(2x = 0 \\Rightarrow x = 0\\)."
+    ans: 3,
+    exp: "Sinistra: \\(x^2 - 9\\). Destra: \\(x^2 - 1 - 8 = x^2 - 9\\). L'equazione diventa \\(x^2 - 9 = x^2 - 9\\), cioè \\(0 = 0\\): vera per ogni \\(x\\). È <strong>indeterminata</strong>."
   },
+
+  // ─── ESERCIZIO ───
   {
-    badge: "Prodotti notevoli",
+    badge: "Esercizio · Prodotti notevoli",
     q: "Qual è la soluzione di \\((x-2)^2 = (x-1)^2 + 5\\)?",
     opts: [
       "\\(x = -1\\)",
@@ -359,36 +431,26 @@ const Q = [
       "\\(x = -2\\)"
     ],
     ans: 0,
-    exp: "Sviluppando: \\(x^2 - 4x + 4 = x^2 - 2x + 1 + 5\\). Semplificando \\(x^2\\): \\(-4x + 4 = -2x + 6 \\Rightarrow -2x = 2 \\Rightarrow x = -1\\)."
-  },
-  {
-    badge: "Prodotti notevoli",
-    q: "L'equazione \\((2x-3)^2 - (2x+1)(2x-1) = 10 - 12x\\) è:",
-    opts: [
-      "Indeterminata",
-      "Determinata con \\(x = \\dfrac{1}{2}\\)",
-      "Impossibile",
-      "Determinata con \\(x = 0\\)"
-    ],
-    ans: 0,
-    exp: "Sinistra: \\((4x^2 - 12x + 9) - (4x^2 - 1) = -12x + 10\\). Destra: \\(10 - 12x\\). L'equazione diventa \\(-12x + 10 = 10 - 12x\\, \\Rightarrow\\, 0 = 0\\): vera per ogni \\(x\\). L'equazione è <strong>indeterminata</strong>."
+    exp: "Sviluppando: \\(x^2 - 4x + 4 = x^2 - 2x + 6\\). Cancellando \\(x^2\\): \\(-4x + 4 = -2x + 6 \\Rightarrow -2x = 2 \\Rightarrow x = -1\\)."
   },
 
-  // ─── EQUAZIONI CON FRAZIONI ───
+  // ─── MCM E FRAZIONI ───
   {
-    badge: "Equazioni con frazioni",
-    q: "Qual è la soluzione di \\(\\dfrac{1}{2}x - 1 = \\dfrac{1}{3}x + 2\\)?",
+    badge: "Frazioni · MCM",
+    q: "Per risolvere \\(\\dfrac{x}{2} + \\dfrac{x}{3} = 5\\), si moltiplica entrambi i membri per:",
     opts: [
-      "\\(x = 18\\)",
-      "\\(x = -18\\)",
-      "\\(x = 6\\)",
-      "\\(x = 2\\)"
+      "\\(2\\)",
+      "\\(3\\)",
+      "\\(5\\)",
+      "\\(6\\)"
     ],
-    ans: 0,
-    exp: "Moltiplicando tutto per 6 (MCM di 2 e 3): \\(3x - 6 = 2x + 12 \\Rightarrow x = 18\\). Verifica: \\(9 - 1 = 6 + 2 = 8\\). ✓"
+    ans: 3,
+    exp: "Il MCM di 2 e 3 è 6. Moltiplicando per 6: \\(3x + 2x = 30 \\Rightarrow 5x = 30 \\Rightarrow x = 6\\)."
   },
+
+  // ─── ESERCIZI CON FRAZIONI ───
   {
-    badge: "Equazioni con frazioni",
+    badge: "Esercizio · Frazioni",
     q: "Qual è la soluzione di \\(\\dfrac{1}{4}x + 3 = x - 6\\)?",
     opts: [
       "\\(x = 12\\)",
@@ -397,46 +459,10 @@ const Q = [
       "\\(x = 3\\)"
     ],
     ans: 0,
-    exp: "Moltiplicando per 4: \\(x + 12 = 4x - 24 \\Rightarrow -3x = -36 \\Rightarrow x = 12\\). Verifica: \\(3 + 3 = 12 - 6 = 6\\). ✓"
+    exp: "Moltiplicando per 4: \\(x + 12 = 4x - 24 \\Rightarrow -3x = -36 \\Rightarrow x = 12\\)."
   },
   {
-    badge: "Equazioni con frazioni",
-    q: "Qual è la soluzione di \\(\\dfrac{x+1}{3} = 2x - 3\\)?",
-    opts: [
-      "\\(x = 2\\)",
-      "\\(x = -2\\)",
-      "\\(x = 10\\)",
-      "\\(x = 3\\)"
-    ],
-    ans: 0,
-    exp: "Moltiplicando per 3: \\(x + 1 = 6x - 9 \\Rightarrow -5x = -10 \\Rightarrow x = 2\\). Verifica: \\(\\dfrac{3}{3} = 1\\) e \\(2 \\cdot 2 - 3 = 1\\). ✓"
-  },
-  {
-    badge: "Equazioni con frazioni",
-    q: "Qual è la soluzione di \\(\\dfrac{2x+5}{3} - \\dfrac{x+10}{6} = 0\\)?",
-    opts: [
-      "\\(x = 0\\)",
-      "\\(x = 5\\)",
-      "\\(x = -5\\)",
-      "\\(x = 2\\)"
-    ],
-    ans: 0,
-    exp: "Moltiplicando per 6: \\(2(2x+5) - (x+10) = 0 \\Rightarrow 4x + 10 - x - 10 = 0 \\Rightarrow 3x = 0 \\Rightarrow x = 0\\)."
-  },
-  {
-    badge: "Equazioni con frazioni",
-    q: "Qual è la soluzione di \\(\\dfrac{1}{5}x - 9 = 2x\\)?",
-    opts: [
-      "\\(x = -5\\)",
-      "\\(x = 5\\)",
-      "\\(x = 9\\)",
-      "\\(x = -9\\)"
-    ],
-    ans: 0,
-    exp: "Moltiplicando per 5: \\(x - 45 = 10x \\Rightarrow -9x = 45 \\Rightarrow x = -5\\). Verifica: \\(-1 - 9 = -10\\) e \\(2 \\cdot (-5) = -10\\). ✓"
-  },
-  {
-    badge: "Equazioni con frazioni",
+    badge: "Esercizio · Frazioni",
     q: "Qual è la soluzione di \\(\\dfrac{x+2}{2} - \\dfrac{x-1}{3} = \\dfrac{7}{6}\\)?",
     opts: [
       "\\(x = -1\\)",
@@ -445,24 +471,38 @@ const Q = [
       "\\(x = -7\\)"
     ],
     ans: 0,
-    exp: "Moltiplicando per 6 (MCM): \\(3(x+2) - 2(x-1) = 7 \\Rightarrow 3x + 6 - 2x + 2 = 7 \\Rightarrow x + 8 = 7 \\Rightarrow x = -1\\)."
+    exp: "MCM = 6. Moltiplicando: \\(3(x+2) - 2(x-1) = 7 \\Rightarrow 3x + 6 - 2x + 2 = 7 \\Rightarrow x + 8 = 7 \\Rightarrow x = -1\\)."
   },
 
-  // ─── FATTORIZZAZIONE ───
+  // ─── FATTORIZZAZIONE · CONCETTI ───
   {
-    badge: "Fattorizzazione",
-    q: "Le soluzioni di \\(x^2 - 5x = 0\\) sono:",
+    badge: "Fattorizzazione · metodo",
+    q: "Per risolvere \\(5x^2 - 10x = 0\\), il primo passo corretto è:",
     opts: [
-      "\\(x = 0\\) oppure \\(x = 5\\)",
-      "\\(x = 5\\) soltanto",
-      "\\(x = 0\\) soltanto",
-      "\\(x = \\pm\\sqrt{5}\\)"
+      "Dividere tutto per \\(x\\)",
+      "Raccogliere \\(5x\\)",
+      "Applicare la formula quadratica",
+      "Portare \\(-10x\\) al secondo membro come \\(+10x\\)"
     ],
-    ans: 0,
-    exp: "Raccogliendo \\(x\\): \\(x(x - 5) = 0\\). Per la legge di annullamento del prodotto: \\(x = 0\\) oppure \\(x - 5 = 0 \\Rightarrow x = 5\\). Non si divide per \\(x\\) (si perderebbe la soluzione \\(x = 0\\))."
+    ans: 1,
+    exp: "Si raccoglie \\(5x\\): \\(5x(x - 2) = 0\\). <strong>Non</strong> si divide per \\(x\\): si perderebbe la soluzione \\(x = 0\\). La formula quadratica è corretta ma inutilmente complessa."
   },
   {
-    badge: "Fattorizzazione",
+    badge: "Fattorizzazione · metodo",
+    q: "Qual è la raccolta corretta di \\(3x^2 - 9x = 0\\)?",
+    opts: [
+      "\\(3(x^2 - 9) = 0\\)",
+      "\\(x(3x - 9) = 0\\)",
+      "\\(3x(x - 3) = 0\\)",
+      "\\(3(x - 3) = 0\\)"
+    ],
+    ans: 2,
+    exp: "Il massimo fattore comune di \\(3x^2\\) e \\(9x\\) è \\(3x\\). Raccogliendo: \\(3x(x - 3) = 0\\). L'opzione A confonde con la differenza di quadrati \\((x^2 - 9)\\), che non c'entra qui."
+  },
+
+  // ─── ESERCIZI · FATTORIZZAZIONE ───
+  {
+    badge: "Esercizio · Fattorizzazione",
     q: "Le soluzioni di \\(6x^2 - 9x = 0\\) sono:",
     opts: [
       "\\(x = 0\\) oppure \\(x = \\dfrac{3}{2}\\)",
@@ -473,32 +513,34 @@ const Q = [
     ans: 0,
     exp: "Raccogliendo \\(3x\\): \\(3x(2x - 3) = 0\\). Quindi \\(x = 0\\) oppure \\(2x - 3 = 0 \\Rightarrow x = \\dfrac{3}{2}\\)."
   },
+
+  // ─── ESERCIZI FINALI ───
   {
-    badge: "Legge zero · prodotto",
-    q: "Le soluzioni di \\((3x-6)(x+2) = 0\\) sono:",
+    badge: "Esercizio · Parentesi",
+    q: "Qual è la soluzione di \\(7(x-18) = 3(x-14) - 20\\)?",
     opts: [
-      "\\(x = 2\\) oppure \\(x = -2\\)",
-      "\\(x = 6\\) oppure \\(x = -2\\)",
-      "\\(x = 2\\) soltanto",
-      "\\(x = -6\\) oppure \\(x = 2\\)"
+      "\\(x = 16\\)",
+      "\\(x = -16\\)",
+      "\\(x = 4\\)",
+      "\\(x = 8\\)"
     ],
     ans: 0,
-    exp: "Il primo fattore: \\(3x - 6 = 0 \\Rightarrow x = 2\\). Il secondo: \\(x + 2 = 0 \\Rightarrow x = -2\\). Nota: \\(3x - 6 = 3(x-2)\\), quindi la radice è \\(x=2\\), non \\(x=6\\)."
+    exp: "Sinistra: \\(7x - 126\\). Destra: \\(3x - 42 - 20 = 3x - 62\\). Quindi \\(7x - 126 = 3x - 62 \\Rightarrow 4x = 64 \\Rightarrow x = 16\\)."
   },
   {
-    badge: "Legge zero · prodotto",
-    q: "Le soluzioni di \\(x(2x+4) = 0\\) sono:",
+    badge: "Esercizio · Parentesi",
+    q: "Qual è la soluzione di \\((7-3x)\\cdot 2 + x = 5 - 3(5-x)\\)?",
     opts: [
-      "\\(x = 0\\) oppure \\(x = -2\\)",
-      "\\(x = 0\\) oppure \\(x = 2\\)",
-      "\\(x = 0\\) oppure \\(x = -4\\)",
-      "\\(x = -2\\) soltanto"
+      "\\(x = 3\\)",
+      "\\(x = -3\\)",
+      "\\(x = 2\\)",
+      "\\(x = 6\\)"
     ],
     ans: 0,
-    exp: "Primo fattore: \\(x = 0\\). Secondo: \\(2x + 4 = 0 \\Rightarrow 2x = -4 \\Rightarrow x = -2\\). Notare che \\(x(2x+4) = 2x(x+2)\\): i fattori sono \\(2\\), \\(x\\) e \\((x+2)\\)."
+    exp: "Sinistra: \\(14 - 6x + x = 14 - 5x\\). Destra: \\(5 - 15 + 3x = -10 + 3x\\). Quindi \\(14 - 5x = -10 + 3x \\Rightarrow 24 = 8x \\Rightarrow x = 3\\)."
   },
   {
-    badge: "Fattorizzazione",
+    badge: "Esercizio · Fattorizzazione",
     q: "Le soluzioni di \\((x-3)^2 - (x-3) = 0\\) sono:",
     opts: [
       "\\(x = 3\\) oppure \\(x = 4\\)",
@@ -507,62 +549,26 @@ const Q = [
       "\\(x = 3\\) oppure \\(x = 0\\)"
     ],
     ans: 0,
-    exp: "Raccogliendo \\((x-3)\\): \\((x-3)\\bigl[(x-3) - 1\\bigr] = 0 \\Rightarrow (x-3)(x-4) = 0\\). Quindi \\(x = 3\\) oppure \\(x = 4\\)."
-  },
-  {
-    badge: "Fattorizzazione",
-    q: "Le soluzioni di \\(4x^2 - 16x = 0\\) sono:",
-    opts: [
-      "\\(x = 0\\) oppure \\(x = 4\\)",
-      "\\(x = \\pm 4\\)",
-      "\\(x = 4\\) soltanto",
-      "\\(x = 0\\) oppure \\(x = -4\\)"
-    ],
-    ans: 0,
-    exp: "Raccogliendo \\(4x\\): \\(4x(x - 4) = 0\\). Quindi \\(x = 0\\) oppure \\(x = 4\\)."
+    exp: "Raccogliendo \\((x-3)\\): \\((x-3)\\bigl[(x-3)-1\\bigr] = 0 \\Rightarrow (x-3)(x-4) = 0\\). Le soluzioni sono \\(x = 3\\) oppure \\(x = 4\\)."
   },
 
-  // ─── RACCOLTA A FATTOR COMUNE ───
+  // ─── SEMPLIFICAZIONE · RAPIDA ───
   {
-    badge: "Raccolta a fattor comune",
-    q: "Risolvere \\(2x(x-5) = x(x-5)\\). Le soluzioni sono:",
+    badge: "Calcolo rapido",
+    q: "L'equazione \\(x(x+4) = x(x-2)\\), dopo la semplificazione, ha come soluzione:",
     opts: [
-      "\\(x = 0\\) oppure \\(x = 5\\)",
-      "\\(x = 5\\) soltanto",
-      "\\(x = 0\\) soltanto",
+      "\\(x = 0\\)",
+      "\\(x = 4\\) oppure \\(x = -2\\)",
+      "\\(x = -4\\) oppure \\(x = 2\\)",
       "Impossibile"
     ],
     ans: 0,
-    exp: "Portando tutto al primo membro: \\(2x(x-5) - x(x-5) = 0 \\Rightarrow (x-5)(2x - x) = 0 \\Rightarrow x(x-5) = 0\\). Quindi \\(x = 0\\) oppure \\(x = 5\\). Non si divide per \\((x-5)\\)."
-  },
-  {
-    badge: "Raccolta a fattor comune",
-    q: "Le soluzioni di \\((x+1)(x-3) = (x+1)(2x-7)\\) sono:",
-    opts: [
-      "\\(x = -1\\) oppure \\(x = 4\\)",
-      "\\(x = -1\\) soltanto",
-      "\\(x = 4\\) soltanto",
-      "\\(x = 1\\) oppure \\(x = -4\\)"
-    ],
-    ans: 0,
-    exp: "Portando al primo membro e raccogliendo: \\((x+1)\\bigl[(x-3)-(2x-7)\\bigr] = 0 \\Rightarrow (x+1)(-x+4) = 0\\). Quindi \\(x = -1\\) oppure \\(x = 4\\)."
+    exp: "Sviluppando: \\(x^2 + 4x = x^2 - 2x\\). Cancellando \\(x^2\\): \\(4x = -2x \\Rightarrow 6x = 0 \\Rightarrow x = 0\\)."
   },
 
-  // ─── GRADO SUPERIORE → 1° ───
+  // ─── RACCOLTA A FATTOR COMUNE · AVANZATA ───
   {
-    badge: "Grado superiore → 1°",
-    q: "Le soluzioni di \\(x^3 - 4x = 0\\) sono:",
-    opts: [
-      "\\(x = 0\\) oppure \\(x = \\pm 2\\)",
-      "\\(x = \\pm 2\\) soltanto",
-      "\\(x = 0\\) soltanto",
-      "\\(x = 0\\) oppure \\(x = 4\\)"
-    ],
-    ans: 0,
-    exp: "Raccogliendo \\(x\\): \\(x(x^2 - 4) = 0 \\Rightarrow x(x-2)(x+2) = 0\\). Le tre soluzioni sono \\(x = 0\\), \\(x = 2\\), \\(x = -2\\)."
-  },
-  {
-    badge: "Grado superiore → 1°",
+    badge: "Esercizio · Raccolta",
     q: "Le soluzioni di \\((2x-1)^2 = (2x-1)(x+3)\\) sono:",
     opts: [
       "\\(x = \\dfrac{1}{2}\\) oppure \\(x = 4\\)",
@@ -571,7 +577,7 @@ const Q = [
       "\\(x = -\\dfrac{1}{2}\\) oppure \\(x = -4\\)"
     ],
     ans: 0,
-    exp: "Portando al primo membro: \\((2x-1)^2 - (2x-1)(x+3) = 0\\). Raccogliendo \\((2x-1)\\): \\((2x-1)\\bigl[(2x-1)-(x+3)\\bigr] = 0 \\Rightarrow (2x-1)(x-4) = 0\\). Quindi \\(x = \\dfrac{1}{2}\\) oppure \\(x = 4\\)."
+    exp: "Portando al primo membro e raccogliendo \\((2x-1)\\): \\((2x-1)\\bigl[(2x-1)-(x+3)\\bigr] = 0 \\Rightarrow (2x-1)(x-4) = 0\\). Quindi \\(x = \\dfrac{1}{2}\\) oppure \\(x = 4\\)."
   }
 
 ];
@@ -662,7 +668,7 @@ function showResults() {
   }, 100);
 
   const msgs = [
-    [27, "Eccellente. Padroneggi equazioni e fattorizzazione — ottimo lavoro."],
+    [27, "Eccellente. Padroneggi teoria e calcolo — ottimo lavoro."],
     [23, "Molto bene! Rivedi i pochi errori e sarai al top."],
     [17, "Buona base. Ricontrolla i temi dove hai sbagliato e riprova."],
     [11, "C'è ancora del lavoro da fare. Rileggi la lezione e riprova."],
@@ -681,7 +687,6 @@ function showResults() {
 
 function restart() { startQuiz(); }
 
-// tastiera: 1-4 seleziona opzione, Enter/Spazio avanza
 document.addEventListener('keydown', e => {
   if (['1','2','3','4'].includes(e.key) && !answered) {
     const idx = parseInt(e.key) - 1;
