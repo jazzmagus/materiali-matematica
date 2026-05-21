@@ -132,7 +132,7 @@ body{font-family:'Source Sans 3','Georgia',serif;background:var(--bg);color:var(
       <p class="hero-sub">30 domande a risposta multipla: circa metà sono domande teoriche e di riconoscimento (classificazione, principi, casi particolari), la restante metà sono esercizi con parentesi multiple, frazioni e fattorizzazione. Per ogni risposta sbagliata riceverai una spiegazione dettagliata.</p>
     </div>
     <div class="intro-meta">
-      <div class="meta-item"><span class="meta-label">Domande</span><span class="meta-value">30</span></div>
+      <div class="meta-item"><span class="meta-label">Domande</span><span class="meta-value">40</span></div>
       <div class="meta-item"><span class="meta-label">Livello</span><span class="meta-value">Intermedio–Avanzato</span></div>
       <div class="meta-item"><span class="meta-label">Feedback</span><span class="meta-value">Immediato</span></div>
     </div>
@@ -168,7 +168,7 @@ body{font-family:'Source Sans 3','Georgia',serif;background:var(--bg);color:var(
     <div class="results-hero">
       <div class="hero-tag">IIS G.A. Remondini · Risultato</div>
       <div class="results-num" id="res-score">--</div>
-      <div class="results-den">su 30 domande</div>
+      <div class="results-den">su 40 domande</div>
       <div class="results-pct" id="res-pct"></div>
       <div class="results-bar-wrap"><div class="results-bar-fill" id="res-bar" style="width:0%"></div></div>
       <p class="results-msg" id="res-msg"></p>
@@ -578,6 +578,128 @@ const Q = [
     ],
     ans: 0,
     exp: "Portando al primo membro e raccogliendo \\((2x-1)\\): \\((2x-1)\\bigl[(2x-1)-(x+3)\\bigr] = 0 \\Rightarrow (2x-1)(x-4) = 0\\). Quindi \\(x = \\dfrac{1}{2}\\) oppure \\(x = 4\\)."
+  },
+
+  // ─── BLOCCO AGGIUNTIVO ───
+  {
+    badge: "Terminologia",
+    q: "Il <strong>termine noto</strong> di un'equazione è:",
+    opts: [
+      "Il coefficiente di \\(x^2\\)",
+      "Il coefficiente di \\(x\\)",
+      "La parte dell'equazione che non contiene la variabile",
+      "Il secondo membro dell'equazione"
+    ],
+    ans: 2,
+    exp: "Il termine noto (o termine costante) è la parte priva della variabile. In \\(3x - 7 = 0\\) il termine noto è \\(-7\\); in \\(2x + 5 = 3\\) i termini noti sono \\(5\\) e \\(3\\)."
+  },
+  {
+    badge: "Calcolo rapido",
+    q: "Qual è la soluzione di \\(2(x+3) = 14\\)?",
+    opts: [
+      "\\(x = 11\\)",
+      "\\(x = 4\\)",
+      "\\(x = -4\\)",
+      "\\(x = 8\\)"
+    ],
+    ans: 1,
+    exp: "Sviluppando: \\(2x + 6 = 14 \\Rightarrow 2x = 8 \\Rightarrow x = 4\\)."
+  },
+  {
+    badge: "Principi di equivalenza",
+    q: "Nell'equazione \\(3x - 4 = 11\\), sommando \\(4\\) ad entrambi i membri si ottiene:",
+    opts: [
+      "\\(3x = 7\\)",
+      "\\(3x = 15\\)",
+      "\\(3x - 4 = 7\\)",
+      "\\(3x = 8\\)"
+    ],
+    ans: 1,
+    exp: "Per il 1° principio di equivalenza: \\(3x - 4 + 4 = 11 + 4 \\Rightarrow 3x = 15\\). L'aggiunta va applicata a <strong>entrambi</strong> i membri, non soltanto al primo."
+  },
+  {
+    badge: "Esercizio · Parentesi",
+    q: "Qual è la soluzione di \\(2(x+1) - 3x = x - 3(x-1)\\)?",
+    opts: [
+      "\\(x = 1\\)",
+      "\\(x = -1\\)",
+      "\\(x = 3\\)",
+      "\\(x = \\dfrac{1}{2}\\)"
+    ],
+    ans: 0,
+    exp: "Sinistra: \\(2x + 2 - 3x = -x + 2\\). Destra: \\(x - 3x + 3 = -2x + 3\\). Quindi \\(-x + 2 = -2x + 3 \\Rightarrow x = 1\\)."
+  },
+  {
+    badge: "Concetto",
+    q: "Un'equazione di 1° grado <strong>determinata</strong> ha:",
+    opts: [
+      "Nessuna soluzione",
+      "Esattamente una soluzione",
+      "Esattamente due soluzioni",
+      "Infinite soluzioni"
+    ],
+    ans: 1,
+    exp: "Un'equazione di 1° grado in un'incognita è <strong>determinata</strong> quando ha esattamente <strong>una</strong> soluzione. Ha zero soluzioni se è impossibile, infinite se è indeterminata."
+  },
+  {
+    badge: "Esercizio · Fattorizzazione",
+    q: "Le soluzioni di \\(x^2 - 5x = 0\\) sono:",
+    opts: [
+      "\\(x = 0\\) oppure \\(x = 5\\)",
+      "\\(x = 5\\) soltanto",
+      "\\(x = 0\\) soltanto",
+      "\\(x = \\pm\\sqrt{5}\\)"
+    ],
+    ans: 0,
+    exp: "Raccogliendo \\(x\\): \\(x(x - 5) = 0\\). Per la legge di annullamento del prodotto: \\(x = 0\\) oppure \\(x = 5\\). Non si divide mai per \\(x\\): si perderebbe la soluzione \\(x = 0\\)."
+  },
+  {
+    badge: "Fattorizzazione · concetto",
+    q: "Perché nell'equazione \\(x^2 - 5x = 0\\) <strong>non</strong> si dividono entrambi i membri per \\(x\\)?",
+    opts: [
+      "Perché \\(x\\) è un'incognita e non un numero",
+      "Perché dividendo per \\(x\\) si perde la soluzione \\(x = 0\\)",
+      "Perché il risultato sarebbe comunque sbagliato",
+      "Perché si deve prima raccogliere \\(x^2\\)"
+    ],
+    ans: 1,
+    exp: "Quando \\(x = 0\\), dividere per \\(x\\) significa dividere per zero, operazione non ammessa. Si perde così la soluzione \\(x = 0\\). Il metodo corretto è raccogliere \\(x\\) e applicare la legge di annullamento del prodotto."
+  },
+  {
+    badge: "Esercizio · Frazioni",
+    q: "Qual è la soluzione di \\(\\dfrac{x+1}{3} = 2x - 3\\)?",
+    opts: [
+      "\\(x = 2\\)",
+      "\\(x = -2\\)",
+      "\\(x = 10\\)",
+      "\\(x = 3\\)"
+    ],
+    ans: 0,
+    exp: "Moltiplicando per 3: \\(x + 1 = 6x - 9 \\Rightarrow -5x = -10 \\Rightarrow x = 2\\). Verifica: \\(\\dfrac{3}{3} = 1\\) e \\(2 \\cdot 2 - 3 = 1\\). ✓"
+  },
+  {
+    badge: "Calcolo rapido",
+    q: "Qual è la soluzione di \\(\\dfrac{x}{2} + 1 = 3\\)?",
+    opts: [
+      "\\(x = 8\\)",
+      "\\(x = 4\\)",
+      "\\(x = 2\\)",
+      "\\(x = -4\\)"
+    ],
+    ans: 1,
+    exp: "\\(\\dfrac{x}{2} = 3 - 1 = 2 \\Rightarrow x = 4\\). Oppure, moltiplicando per 2 da subito: \\(x + 2 = 6 \\Rightarrow x = 4\\)."
+  },
+  {
+    badge: "Esercizio · Raccolta",
+    q: "Le soluzioni di \\((x+1)(x-3) = (x+1)(2x-7)\\) sono:",
+    opts: [
+      "\\(x = -1\\) oppure \\(x = 4\\)",
+      "\\(x = -1\\) soltanto",
+      "\\(x = 4\\) soltanto",
+      "\\(x = 1\\) oppure \\(x = -4\\)"
+    ],
+    ans: 0,
+    exp: "Portando al primo membro e raccogliendo \\((x+1)\\): \\((x+1)\\bigl[(x-3)-(2x-7)\\bigr] = 0 \\Rightarrow (x+1)(-x+4) = 0\\). Quindi \\(x = -1\\) oppure \\(x = 4\\)."
   }
 
 ];
