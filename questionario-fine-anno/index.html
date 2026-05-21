@@ -145,6 +145,13 @@ input.q-short::placeholder{color:var(--text-dim);font-size:.85rem}
 .end-citation{text-align:center;font-family:'Playfair Display',serif;font-size:1rem;font-style:italic;line-height:1.65;color:var(--text-mid);padding:20px 24px}
 .end-citation-src{display:block;font-family:'Fira Code',monospace;font-size:.7rem;font-style:normal;color:var(--text-dim);margin-top:8px;letter-spacing:.5px}
 
+/* SUBMIT OVERLAY */
+.submit-overlay{display:none;position:fixed;inset:0;background:rgba(250,247,242,.9);backdrop-filter:blur(8px);z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:16px}
+.submit-overlay.show{display:flex}
+.spinner{width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.submit-msg{font-family:'Fira Code',monospace;font-size:.8rem;color:var(--text-dim);letter-spacing:1px}
+
 @media(max-width:600px){
   body{font-size:16px}
   .s-card{padding:20px 18px}
@@ -158,6 +165,11 @@ input.q-short::placeholder{color:var(--text-dim);font-size:.85rem}
 </style>
 </head>
 <body>
+
+<div class="submit-overlay" id="overlay">
+  <div class="spinner"></div>
+  <div class="submit-msg">Invio in corso…</div>
+</div>
 
 <div class="topbar">
   <div class="topbar-brand">Valutazione docente · 2025/26</div>
@@ -518,7 +530,7 @@ input.q-short::placeholder{color:var(--text-dim);font-size:.85rem}
 
     <div class="s-nav">
       <button class="btn-back" onclick="goto(5)">← Indietro</button>
-      <button class="btn-fwd btn-submit" onclick="goto(7)">Concludi il questionario ✓</button>
+      <button class="btn-fwd btn-submit" id="btn-submit" onclick="submitForm()">Concludi il questionario ✓</button>
     </div>
   </div>
 </div>
@@ -569,6 +581,10 @@ input.q-short::placeholder{color:var(--text-dim);font-size:.85rem}
 </div><!-- /container -->
 
 <script>
+// ─── CONFIG ──────────────────────────────────────
+// Incolla qui l'URL del Web App dopo il deploy su Apps Script
+const SCRIPT_URL = '';
+
 // ─── STATE ───────────────────────────────────────
 const S = {};
 
@@ -638,6 +654,59 @@ function goto(n) {
   window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
+// ─── RACCOLTA DATI ───────────────────────────────
+function collectData() {
+  const tv = id => (document.getElementById(id) || {}).value || '';
+  return {
+    q1:       S.q1  ?? '',
+    q2:       S.q2  ?? '',
+    q3:       S.q3  ?? '',
+    q4:       tv('q4'),
+    q5:       S.q5  ?? '',
+    q6:       S.q6  ?? '',
+    q7:       S.q7  ?? '',
+    q8:       S.q8  ?? '',
+    q9:       tv('q9'),
+    q10:      S.q10 ?? '',
+    q11:      S.q11 ?? '',
+    q11_text: tv('q11-text'),
+    q12:      S.q12 ?? '',
+    q13:      tv('q13'),
+    q14:      tv('q14'),
+    q15:      S.q15 ?? '',
+    q15_text: tv('q15-text'),
+    q16:      tv('q16'),
+    q17:      tv('q17'),
+    q18:      tv('q18'),
+    q19:      tv('q19'),
+    q20:      S.q20 ?? '',
+    q21:      tv('q21'),
+    q22:      tv('q22')
+  };
+}
+
+// ─── INVIO ───────────────────────────────────────
+async function submitForm() {
+  document.getElementById('overlay').classList.add('show');
+  const payload = collectData();
+
+  if (SCRIPT_URL) {
+    try {
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',        // evita preflight CORS con Apps Script
+        body: JSON.stringify(payload)
+      });
+    } catch(e) {
+      // no-cors: la risposta non è leggibile ma il POST arriva lo stesso
+    }
+  }
+
+  document.getElementById('overlay').classList.remove('show');
+  goto(7);
+}
+
+// ─── START ───────────────────────────────────────
 // Start on intro
 goto(0);
 </script>
