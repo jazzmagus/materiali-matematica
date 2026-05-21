@@ -339,6 +339,30 @@ body {
     </div>
   </div>
 
+  <!-- STRUMENTI DOCENTE -->
+  <div class="subject">
+    <div class="subject-header">
+      <div class="subject-dot" style="background:var(--purple)"></div>
+      <div class="subject-title">Strumenti docente</div>
+      <div class="subject-count" id="count-doc"></div>
+    </div>
+    <div class="card-grid" id="grid-doc">
+
+      <a class="card purple" href="questionario-fine-anno/">
+        <div class="card-tag">Questionario · Corso serale · a.s. 2025/26</div>
+        <div class="card-title">Valutazione del docente — Fine anno</div>
+        <div class="card-desc">Questionario anonimo per studenti adulti (serali): clima, metodo, strumenti digitali, apprendimento e feedback costruttivo. 6 sezioni · 22 domande.</div>
+        <div class="card-arrow">
+          Apri il questionario
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
   <div class="footer">
     <span><strong>Diego Fantinelli</strong> — IIS G.A. Remondini - Bassano del Grappa</span>
     <span id="footer-year"></span>
@@ -349,7 +373,7 @@ body {
 <script>
 document.getElementById('footer-year').textContent = new Date().getFullYear();
 // Conteggio automatico schede per sezione
-['mat', 'eq1'].forEach(id => {
+['mat', 'eq1', 'doc'].forEach(id => {
   const grid = document.getElementById('grid-' + id);
   const count = document.getElementById('count-' + id);
   if (grid && count) count.textContent = grid.querySelectorAll('.card').length + ' materiali';
