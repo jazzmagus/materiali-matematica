@@ -363,6 +363,30 @@ body {
     </div>
   </div>
 
+  <!-- GESTIONALE ZUCCHETTI -->
+  <div class="subject">
+    <div class="subject-header">
+      <div class="subject-dot" style="background:var(--gold)"></div>
+      <div class="subject-title">Gestionale Zucchetti</div>
+      <div class="subject-count" id="count-zucchetti"></div>
+    </div>
+    <div class="card-grid" id="grid-zucchetti">
+
+      <a class="card gold" href="Zucchetti-G1/Manuale-Gestionale1-Zucchetti.html">
+        <div class="card-tag">Manuale · Informatica gestionale</div>
+        <div class="card-title">Gestionale 1 Zucchetti — Manuale d'uso</div>
+        <div class="card-desc">Guida completa al software Zucchetti G1: navigazione, funzioni principali, esempi operativi e riferimenti rapidi.</div>
+        <div class="card-arrow">
+          Apri il manuale
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
   <div class="footer">
     <span><strong>Diego Fantinelli</strong> — IIS G.A. Remondini - Bassano del Grappa</span>
     <span id="footer-year"></span>
@@ -373,7 +397,7 @@ body {
 <script>
 document.getElementById('footer-year').textContent = new Date().getFullYear();
 // Conteggio automatico schede per sezione
-['mat', 'eq1', 'doc'].forEach(id => {
+['mat', 'eq1', 'doc', 'zucchetti'].forEach(id => {
   const grid = document.getElementById('grid-' + id);
   const count = document.getElementById('count-' + id);
   if (grid && count) count.textContent = grid.querySelectorAll('.card').length + ' materiali';
